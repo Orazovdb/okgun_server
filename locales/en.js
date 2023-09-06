@@ -14,7 +14,7 @@ export default {
   all: "All",
   faks: "Phone/Fax",
   address: "Our address",
-  city: "",
+  city: "Mary city Garagum street №3",
   allRigthReserved: "all rights reserved",
   allRegions: "Across all regions",
   workTime: "Working hours",

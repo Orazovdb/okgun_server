@@ -79,7 +79,7 @@ cd<template>
 
 <style lang="scss" scoped>
   .swiper-block {
-    height: calc(100vh - 80px);
+    height: calc(100vh - 20vh);
     background-color: #f7f7f7;
     margin-bottom: 40px;
     @media (max-width: 992px) {

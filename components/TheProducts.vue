@@ -2,7 +2,7 @@
   <div class="products">
     <div class="products__container">
       <a href="#" @click.prevent class="products-title-block">
-        <h1>{{ $t('products') }}</h1>
+        <h1 >{{ $t('products') }}</h1>
       </a>
       <div class="products-swiper-block swiper">
         <div class="products-swiper-block__wrapper swiper-wrapper">
@@ -232,7 +232,7 @@
           margin-top: 16px;
           font-weight: 700;
           top: 0;
-					margin-top: 10px;
+          margin-top: 10px;
         }
       }
     }

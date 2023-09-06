@@ -49,7 +49,11 @@ export default {
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
         ...i18nHead.meta
       ],
-      link: [{ rel: 'icon', type: '/logo.svg', href: '/logo.svg' }, ...i18nHead.link]
+      link: [
+        { rel: 'icon', type: '/logo.svg', href: '/logo.svg' },
+        { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@ajusa/lit@1.0.0/dist/lit.css' },
+        ...i18nHead.link
+      ]
     }
   },
 
@@ -59,7 +63,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/css/style.css', '@/assets/css/style.scss', '@/assets/css/grid.scss'],
+  css: ['@/assets/css/style.css', '@/assets/css/style.scss', '@/assets/css/grid.scss', 'aos/dist/aos.css'],
 
   loading: {
     color: 'red',
@@ -67,13 +71,14 @@ export default {
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '@/plugins/vue-awesome-swiper', mode: 'client' },    
-	{ src: '@/plugins/aos.client', mode: 'client' }],
+  plugins: [
+    { src: '@/plugins/vue-awesome-swiper', mode: 'client' },
+    { src: '@/plugins/aos.client', ssr: false }
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: {
     dirs: ['@/components', '@/components/base']
-
   },
   ssr: true,
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
@@ -118,5 +123,7 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {
+    vendor: ['aos']
+  }
 }

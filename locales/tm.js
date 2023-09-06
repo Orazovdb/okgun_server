@@ -14,7 +14,7 @@ export default {
   all: "Ählisi",
   faks: "Tel/faks",
   address: "Salgymyz",
-  city: "",
+  city: "Mary şäheri Garagum köç №3",
   allRigthReserved: "ähli hukuklary goralan",
   allRegions: "Ähli welaýatlar boýunça",
   workTime: "Iş wagty",

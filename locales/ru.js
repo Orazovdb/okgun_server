@@ -14,7 +14,7 @@ export default {
   all: "Все",
   faks: "Телефон/факс",
   address: "Наш адрес",
-  city: "",
+  city: "город Мары уль. Каракум №3",
   allRigthReserved: "все права защищены",
   allRegions: "По всем регионам",
   workTime: "Рабочее время",
