@@ -1,11 +1,11 @@
 <template>
-  <div class="products">
+  <div class="products" ref="aos">
     <div class="products__container">
       <a href="#" @click.prevent class="products-title-block">
-        <h1 >{{ $t('products') }}</h1>
+        <h1>{{ $t('products') }}</h1>
       </a>
       <div class="products-swiper-block swiper">
-        <div class="products-swiper-block__wrapper swiper-wrapper">
+        <div class="products-swiper-block__wrapper swiper-wrapper" ref="image">
           <div
             class="products-swiper-block__slide swiper-slide"
             v-for="slide in categories"
@@ -50,11 +50,30 @@
     mixins: [translate],
     data() {
       return {
-        selectedId: null
+        selectedId: null,
+        observer: null
       }
     },
     computed: {
       ...mapGetters(['baseURL'])
+    },
+    mounted() {
+      if (this.$refs.aos) {
+        const options =
+          {
+            rootMargin: '1000px 0px 0px 0px',
+            threshold: 1.0
+          } || {}
+        this.observer = new IntersectionObserver(async ([entry]) => {
+          if (entry && entry.isIntersecting) {
+            this.$refs.image.classList.add('aos')
+          }
+        }, options)
+        this.observer.observe(this.$refs.aos)
+      }
+    },
+    destroyed() {
+      this.observer.disconnect()
     },
     methods: {
       categoryProducts(item) {
@@ -199,6 +218,13 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 30px;
+      transform: translateY(80px);
+      opacity: 0;
+      &.aos {
+        opacity: 1;
+        transform: translateY(0px);
+        transition: 1s all;
+      }
       @media (max-width: 767px) {
         grid-template-columns: repeat(2, 1fr);
       }

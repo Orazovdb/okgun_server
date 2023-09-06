@@ -1,6 +1,6 @@
 <template>
-  <div class="contact">
-    <div class="contact__container">
+  <div class="contact" ref="aos">
+    <div class="contact__container" ref="image">
       <h1 class="contact__title">{{ $t('contactUs') }}</h1>
       <div class="contact__row">
         <base-input :label="$t('name')" placeholder="..." :value="send.name" @updateValue="(val) => (send.name = val)" />
@@ -20,6 +20,7 @@
   export default {
     data() {
       return {
+        observer: null,
         send: {
           name: null,
           email: null,
@@ -44,13 +45,31 @@
           console.log(error)
         }
       }
+    },
+    mounted() {
+      if (this.$refs.aos) {
+        const options =
+          {
+            rootMargin: '1000px 0px 0px 0px',
+            threshold: 1.0
+          } || {}
+        this.observer = new IntersectionObserver(async ([entry]) => {
+          if (entry && entry.isIntersecting) {
+            this.$refs.image.classList.add('aos')
+          }
+        }, options)
+        this.observer.observe(this.$refs.aos)
+      }
+    },
+    destroyed() {
+      this.observer.disconnect()
     }
   }
 </script>
 
 <style lang="scss" scoped>
   .contact {
-    background-color: #fafafa;
+    background-color: #efefef;
     padding: 100px 0;
     @media (max-width: 767px) {
       padding: 40px 0;
@@ -58,9 +77,16 @@
     &__container {
       max-width: 1100px;
       margin: 0 auto;
-      box-shadow: 0.2px 0.2px 20px var(--primary);
+      box-shadow: 0.2px 0.2px 5px;
       border-radius: 10px;
       padding: 20px 40px;
+      transform: translateY(80px);
+      opacity: 0;
+      &.aos {
+        opacity: 1;
+        transform: translateY(0px);
+        transition: 1s all;
+      }
     }
 
     &__title {
