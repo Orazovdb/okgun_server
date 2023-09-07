@@ -25,7 +25,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in products" :key="item.uuid">
+            <tr v-for="(item, index) in products" :key="index">
               <td>{{ index + 1 }}</td>
               <td class="img">
                 <div class="img">
