@@ -5,14 +5,14 @@
         <h1>{{ $t('products') }}</h1>
       </a>
       <div class="products-swiper-block swiper">
-        <div class="products-swiper-block__wrapper swiper-wrapper">
+        <div class="products-swiper-block__wrapper swiper-wrapper" ref="image">
           <div
             class="products-swiper-block__slide swiper-slide"
             v-for="slide in categories"
             :key="slide.uuid"
             @click.stop="$router.push(localeLocation(`/products/${slide.uuid}`))"
           >
-            <div class="products-swiper-block__image" ref="image">
+            <div class="products-swiper-block__image">
               <img :src="`${baseURL}/uploads/products/${slide.image}`" alt="" />
             </div>
             <p>{{ translateTitle(slide) }}</p>
@@ -218,6 +218,13 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 30px;
+      transform: translateY(80px);
+      opacity: 0;
+      &.aos {
+        opacity: 1;
+        transform: translateY(0px);
+        transition: 1s all;
+      }
       @media (max-width: 767px) {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -228,6 +235,7 @@
 
     &__slide {
       position: relative;
+      cursor: pointer;
       p {
         display: inline-block;
         position: absolute;
@@ -270,13 +278,6 @@
         height: 100%;
         object-fit: contain;
         object-position: center;
-      }
-      transform: translateY(80px);
-      opacity: 0;
-      &.aos {
-        opacity: 1;
-        transform: translateY(0px);
-        transition: 0.4s all;
       }
       @media (max-width: 767px) {
         height: 180px;
