@@ -86,7 +86,7 @@
         const options =
           {
             rootMargin: '100px 0px 0px 0px',
-            threshold: 1.0
+            threshold: 0.4
           } || {}
         this.observer = new IntersectionObserver(async ([entry]) => {
           if (entry && entry.isIntersecting) {

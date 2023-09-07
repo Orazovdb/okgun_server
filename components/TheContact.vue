@@ -5,10 +5,10 @@
       <div class="contact__row" ref="image">
         <base-input :label="$t('name')" placeholder="..." :value="send.name" @updateValue="(val) => (send.name = val)" />
         <!-- <base-input :label="$t('phoneNumber')" placeholder="..." type="number" :value="send.number" @updateValue="(val) => (send.number = val)" /> -->
+        <base-textarea :label="$t('text')" placeholder="..." :value="send.context" @updateValue="(val) => (send.context = val)" class="rowspan" />
         <base-input :label="$t('email')" type="email" placeholder="..." :value="send.email" @updateValue="(val) => (send.email = val)" />
-        <base-textarea :label="$t('text')" placeholder="..." :value="send.context" @updateValue="(val) => (send.context = val)" />
       </div>
-      <div class="flex flex-x-end">
+      <div class="flex flex-x-end mt-2">
         <base-button banner @clickedButton="sendLetter">{{ $t('send') }}</base-button>
       </div>
     </div>
@@ -51,7 +51,7 @@
         const options =
           {
             rootMargin: '100px 0px 0px 0px',
-            threshold: 1.0
+            threshold: 0.4
           } || {}
         this.observer = new IntersectionObserver(async ([entry]) => {
           if (entry && entry.isIntersecting) {
@@ -98,7 +98,19 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
-      margin-bottom: 30px;
+      .rowspan {
+        grid-column-start: 2;
+        grid-row-start: 3;
+        grid-row-end: 1;
+        textarea {
+          height: 100% !important;
+        }
+        @media (max-width: 767px) {
+          grid-column-start: auto;
+          grid-row-start: auto;
+          grid-row-end: auto;
+        }
+      }
       @media (max-width: 767px) {
         grid-template-columns: 1fr;
         gap: 16px;

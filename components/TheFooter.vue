@@ -7,7 +7,7 @@
         </nuxt-link>
         <div class="footer__item mail">
           <h3>{{ $t('email') }}</h3>
-          <a href="mailto:okgun@mail.ru">okgun@mail.ru</a>
+          <a href="info@okgun.ru">info@okgun.ru</a>
         </div>
         <div class="footer__item faks">
           <h3>{{ $t('faks') }}</h3>
@@ -21,8 +21,9 @@
         <div class="footer__item icons">
           <h3>{{ $t('contactUs') }}</h3>
           <div class="footer__item-icons">
-            <a href="https://www.instagram.com/okgun_konditer/" class="icon-hover"><base-icon icon="instagram" /></a>
+            <a href="https://instagram.com/obbi_dragees?igshid=NGVhN2U2NjQ0Yg==" class="icon-hover"><base-icon icon="instagram" /></a>
             <a href="https://www.linkedin.com/in/okgun-confectionery-factory-54b188238" class="icon-hover"><base-icon icon="linkedin" /> </a>
+            <a href="www.tiktok.com/@obbi_dragees" class="icon-hover"><base-icon icon="tiktok" /> </a>
           </div>
         </div>
       </div>

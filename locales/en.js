@@ -14,7 +14,7 @@ export default {
   all: "All",
   faks: "Phone/Fax",
   address: "Our address",
-  city: "Mary city Garagum street №3, 3rd house, room 49",
+  city: "Building 9 'A' of Mulkbagshi residential complex, Mary city, Mary province",
   allRigthReserved: "all rights reserved",
   allRegions: "Across all regions",
   workTime: "Working hours",

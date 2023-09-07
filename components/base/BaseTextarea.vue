@@ -62,6 +62,7 @@ export default {
     padding: 12px 12px 0px;
     background: #fff;
     resize: none;
+		height: 87%;
     &:valid {
       color: var(--text);
     }
