@@ -1,8 +1,8 @@
 <template>
   <div class="contact" ref="aos">
-    <div class="contact__container" ref="image">
+    <div class="contact__container">
       <h1 class="contact__title">{{ $t('contactUs') }}</h1>
-      <div class="contact__row">
+      <div class="contact__row" ref="image">
         <base-input :label="$t('name')" placeholder="..." :value="send.name" @updateValue="(val) => (send.name = val)" />
         <!-- <base-input :label="$t('phoneNumber')" placeholder="..." type="number" :value="send.number" @updateValue="(val) => (send.number = val)" /> -->
         <base-input :label="$t('email')" type="email" placeholder="..." :value="send.email" @updateValue="(val) => (send.email = val)" />
@@ -80,13 +80,6 @@
       box-shadow: 0.2px 0.2px 5px;
       border-radius: 10px;
       padding: 20px 40px;
-      transform: translateY(80px);
-      opacity: 0;
-      &.aos {
-        opacity: 1;
-        transform: translateY(0px);
-        transition: 0.4s all;
-      }
     }
 
     &__title {
@@ -109,6 +102,13 @@
       @media (max-width: 767px) {
         grid-template-columns: 1fr;
         gap: 16px;
+      }
+      transform: translateY(80px);
+      opacity: 0;
+      &.aos {
+        opacity: 1;
+        transform: translateY(0px);
+        transition: 0.4s all;
       }
     }
   }

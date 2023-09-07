@@ -5,14 +5,14 @@
         <h1>{{ $t('products') }}</h1>
       </a>
       <div class="products-swiper-block swiper">
-        <div class="products-swiper-block__wrapper swiper-wrapper" ref="image">
+        <div class="products-swiper-block__wrapper swiper-wrapper">
           <div
             class="products-swiper-block__slide swiper-slide"
             v-for="slide in categories"
             :key="slide.uuid"
             @click.stop="$router.push(localeLocation(`/products/${slide.uuid}`))"
           >
-            <div class="products-swiper-block__image">
+            <div class="products-swiper-block__image" ref="image">
               <img :src="`${baseURL}/uploads/products/${slide.image}`" alt="" />
             </div>
             <p>{{ translateTitle(slide) }}</p>
