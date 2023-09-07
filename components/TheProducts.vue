@@ -61,7 +61,7 @@
       if (this.$refs.aos) {
         const options =
           {
-            rootMargin: '1000px 0px 0px 0px',
+            rootMargin: '100px 0px 0px 0px',
             threshold: 1.0
           } || {}
         this.observer = new IntersectionObserver(async ([entry]) => {
@@ -223,7 +223,7 @@
       &.aos {
         opacity: 1;
         transform: translateY(0px);
-        transition: 1s all;
+        transition: 0.4s all;
       }
       @media (max-width: 767px) {
         grid-template-columns: repeat(2, 1fr);

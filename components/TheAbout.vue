@@ -44,7 +44,7 @@
       if (this.$refs.about) {
         const options =
           {
-            rootMargin: '1000px 0px 0px 0px',
+            rootMargin: '100px 0px 0px 0px',
             threshold: 1.0
           } || {}
         this.observer = new IntersectionObserver(async ([entry]) => {
@@ -100,12 +100,12 @@
 
     &__image {
       transform: translateY(-100px);
-      transition: 1s all;
-      opacity: 0;
+      transition: 0.4s all;
+      opacity: 1;
       &.aos {
         opacity: 1;
         transform: translateY(-80px);
-        transition: 1s all;
+        transition: 0.4s all;
       }
       img {
         width: 100%;
@@ -120,11 +120,11 @@
 
     &__content {
       transform: translateY(80px);
-			opacity: 0;
+      opacity: 0;
       &.aos {
         opacity: 1;
         transform: translateY(0px);
-        transition: 1s all;
+        transition: 0.4s all;
       }
       h1 {
         color: var(--text);

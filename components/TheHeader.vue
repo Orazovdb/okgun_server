@@ -1,11 +1,11 @@
 <template>
-  <div class="header">
+  <div class="header" ref="aos">
     <div class="header__container">
       <div :class="['header__logo', { active: isBodyActive }]" @click="$router.push(localeLocation('/'))">
         <img src="@/assets/img/logo.svg" alt="" />
         <img src="@/assets/img/logo-burger.svg" alt="" class="logo-burger" />
       </div>
-      <nav :class="['menu', { _active: isBodyActive }]">
+      <nav :class="['menu', { _active: isBodyActive }]" ref="image">
         <div class="menu__body">
           <ul class="menu__list">
             <li class="menu__item" v-for="link in links" :key="link.id">
@@ -52,7 +52,8 @@
     data() {
       return {
         linkActiveId: null,
-        isBodyActive: null
+        isBodyActive: null,
+        observer: null
       }
     },
     watch: {
@@ -64,6 +65,24 @@
           document.querySelector('.wrapper').classList.remove('_lock')
         }
       }
+    },
+    mounted() {
+      if (this.$refs.aos) {
+        const options =
+          {
+            rootMargin: '100px 0px 0px 0px',
+            threshold: 1.0
+          } || {}
+        this.observer = new IntersectionObserver(async ([entry]) => {
+          if (entry && entry.isIntersecting) {
+            this.$refs.image.classList.add('aos')
+          }
+        }, options)
+        this.observer.observe(this.$refs.aos)
+      }
+    },
+    destroyed() {
+      this.observer.disconnect()
     },
     methods: {
       showBody() {
@@ -242,6 +261,13 @@
     }
   }
   .menu {
+    transform: translateY(80px);
+    opacity: 0;
+    &.aos {
+      opacity: 1;
+      transform: translateY(0px);
+      transition: 0.4s all;
+    }
     &._active {
       .menu__body {
         transition: all 0.3s;

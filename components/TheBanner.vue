@@ -1,4 +1,5 @@
-cd<template>
+cd
+<template>
   <div class="swiper-block">
     <div v-swiper:mySwiper="options" class="swiper-block__swiper swiper">
       <div class="swiper-block__wrapper swiper-wrapper">
@@ -54,11 +55,11 @@ cd<template>
         options: {
           loop: true,
           slidesPerView: 1,
-          speed: 700,
+          speed: 200,
           spaceBetween: 20,
-          //  autoplay: {
-          //    delay: 5000
-          //  },
+          autoplay: {
+            delay: 4000
+          },
           pagination: {
             el: '.swiper-pagination-bullet',
             clickable: true
@@ -134,18 +135,6 @@ cd<template>
         object-fit: cover;
         object-position: center;
       }
-      // &::before {
-      //   content: '';
-      //   position: absolute;
-      //   left: 0;
-      //   z-index: -1;
-      //   width: calc(100% - 40%);
-      //   height: calc(100% + 20%);
-      //   background-color: #efead5;
-      //   top: 50%;
-      //   transform: translateY(-50%);
-      //   border-radius: 0 100px 100px 0;
-      // }
       @media (max-width: 992px) {
         position: relative;
         order: 2;
