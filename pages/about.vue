@@ -50,7 +50,7 @@
       }
     },
     async fetch() {
-      await this.fetchAbousUs()
+      await this.fetchAboutUs()
     },
     mounted() {
       if (this.$refs.aos) {
@@ -71,7 +71,7 @@
       this.observer.disconnect()
     },
     methods: {
-      async fetchAbousUs() {
+      async fetchAboutUs() {
         try {
           const { data, status } = await GET_ABOUTUS()
           if (status) {

@@ -18,10 +18,12 @@
             <p>{{ translateTitle(slide) }}</p>
           </div>
         </div>
-        <div class="buttons">
-          <div class="buttons__item" v-for="catalog in catalogs" :key="catalog.uuid" @click="seePdf(catalog)">
-            <span class="big-text">{{ translateTitle(catalog) }}</span>
-            <span class="small-text">{{ $t('productsCatalog') }}</span>
+        <div>
+          <div class="buttons">
+            <div class="buttons__item" v-for="catalog in catalogs" :key="catalog.uuid" @click="seePdf(catalog)">
+              <span class="big-text">{{ translateTitle(catalog) }}</span>
+              <span class="small-text">{{ $t('productsCatalog') }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -64,13 +66,20 @@
             rootMargin: '100px 0px 0px 0px',
             threshold: 0.4
           } || {}
-        this.observer = new IntersectionObserver(async ([entry]) => {
-          if (entry && entry.isIntersecting) {
-            this.$refs.image.classList.add('aos')
-          }
+        this.observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            console.log(entry.intersectionRatio)
+            if (entry.intersectionRatio > 0) {
+              this.$refs.image.classList.add('aos')
+              console.log('if')
+            } else {
+              this.$refs.image.classList.remove('aos')
+              console.log('else')
+            }
+          })
         }, options)
-        this.observer.observe(this.$refs.aos)
       }
+      this.observer.observe(this.$refs.aos)
     },
     destroyed() {
       this.observer.disconnect()
@@ -348,8 +357,8 @@
     padding-top: 100px;
     padding-bottom: 120px;
     cursor: pointer;
-    // .buttons__item
 
+    // .buttons__item
     &__item {
       width: 400px;
       padding: 10px 20px;

@@ -82,7 +82,6 @@
           console.log(error)
         }
       },
-
       async deleteItem(uuid) {
         try {
           const { data, status } = await DELETE_SLIDER({ data: { uuid: uuid } })
