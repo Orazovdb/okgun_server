@@ -123,7 +123,8 @@
       justify-content: center;
       align-items: center;
       img {
-        height: 90px;
+        width: 140px;
+        height: 50px;
       }
     }
   }
