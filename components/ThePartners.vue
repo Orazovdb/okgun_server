@@ -57,7 +57,7 @@
               spaceBetween: 60
             },
             992: {
-              slidesPerView: 5,
+              slidesPerView: 10,
               spaceBetween: 80
             }
           }
@@ -98,7 +98,7 @@
     &__swiper-wrapper {
       border-top: 1px solid var(--text2);
       border-bottom: 1px solid var(--text2);
-      padding: 60px 0;
+      padding: 50px 0;
       @media (max-width: 767px) {
         padding: 30px 0;
       }
@@ -112,7 +112,6 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       grid-auto-flow: column;
-      cursor: grab;
     }
 
     &__slide {
@@ -120,13 +119,11 @@
 
     &__image {
       width: 100%;
-      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       img {
-      }
-      @media (max-width: 767px) {
+        height: 90px;
       }
     }
   }
