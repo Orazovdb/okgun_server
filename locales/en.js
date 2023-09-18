@@ -9,7 +9,7 @@ export default {
   email: "E-mail",
   text: "Theme",
   send: "Send",
-  partners: "Our partners",
+  partners: "Our brends",
   readMore: "More",
   all: "All",
   faks: "Phone/Fax",

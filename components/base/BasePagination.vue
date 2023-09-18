@@ -19,7 +19,6 @@
         /></span>
       </button>
     </li>
-
     <li
       v-for="page in items"
       :key="page.label"
@@ -43,7 +42,6 @@
         {{ page.label }}
       </button>
     </li>
-
     <li
       v-if="paginationLabels.next"
       :class="`${paginationClasses.li} ${

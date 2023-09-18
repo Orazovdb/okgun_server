@@ -9,7 +9,7 @@ export default {
   email: 'E-mail',
   text: 'Tema',
   send: 'Ugratmak',
-  partners: 'Hyzmatdaşlarymyz',
+  partners: 'Biziň brendlarymyzz',
   readMore: 'Doly maglumat',
   all: 'Ählisi',
   faks: 'Tel/faks',

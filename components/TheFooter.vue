@@ -11,8 +11,7 @@
         </div>
         <div class="footer__item faks">
           <h3>{{ $t('faks') }}</h3>
-          <a href="tel:+99365960081">+993 65 960081</a>
-          <a href="tel:+99362558736">+993 62 558736</a>
+          <a href="tel:+99364415588">+993 64 41 55 88</a>
         </div>
         <div class="footer__item address">
           <h3>{{ $t('address') }}</h3>
@@ -23,7 +22,7 @@
           <div class="footer__item-icons">
             <a href="https://instagram.com/obbi_dragees?igshid=NGVhN2U2NjQ0Yg==" class="icon-hover"><base-icon icon="instagram" /></a>
             <a href="https://www.linkedin.com/in/okgun-confectionery-factory-54b188238" class="icon-hover"><base-icon icon="linkedin" /> </a>
-            <a href="www.tiktok.com/@obbi_dragees" class="icon-hover"><base-icon icon="tiktok" /> </a>
+            <a href="https://www.tiktok.com/@obbi_dragees" class="icon-hover"><base-icon icon="tiktok" /> </a>
           </div>
         </div>
       </div>

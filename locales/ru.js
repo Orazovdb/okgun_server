@@ -9,7 +9,7 @@ export default {
   email: 'Э-почта',
   text: 'Тема',
   send: 'Отправить',
-  partners: 'Наши партнеры',
+  partners: 'Наши бренды',
   readMore: 'Полная информация',
   all: 'Все',
   faks: 'Телефон/факс',

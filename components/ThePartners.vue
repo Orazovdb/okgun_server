@@ -33,6 +33,7 @@
           slidesPerGroup: 1,
           speed: 1000,
           spaceBetween: 20,
+          clickable: true,
           autoplay: {
             delay: 5000
           },
@@ -57,8 +58,8 @@
               spaceBetween: 60
             },
             992: {
-              slidesPerView: 10,
-              spaceBetween: 80
+              slidesPerView: 3,
+              spaceBetween: 50
             }
           }
         }
@@ -93,6 +94,7 @@
     // .partners__container
 
     &__container {
+      max-width: 1200px;
     }
 
     &__swiper-wrapper {
@@ -119,12 +121,13 @@
 
     &__image {
       width: 100%;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       img {
-        width: 140px;
-        height: 50px;
+        width: 160px;
+        min-height: 60px;
       }
     }
   }

@@ -1,9 +1,9 @@
 <template>
   <div class="products" ref="aos">
     <div class="products__container">
-      <a href="#" @click.prevent class="products-title-block">
+      <nuxt-link :to="localeLocation('/products')" @click.prevent class="products-title-block">
         <h1>{{ $t('products') }}</h1>
-      </a>
+      </nuxt-link>
       <div class="products-swiper-block swiper">
         <div class="products-swiper-block__wrapper swiper-wrapper" ref="image">
           <div
@@ -114,7 +114,7 @@
   .products-title-block {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding-bottom: 50px;
     @media (max-width: 767px) {
       padding-bottom: 10px;
@@ -245,6 +245,10 @@
     &__slide {
       position: relative;
       cursor: pointer;
+      transition: 0.2s all;
+      &:hover {
+        transform: scale(1.02);
+      }
       p {
         display: inline-block;
         position: absolute;
@@ -354,9 +358,8 @@
     display: flex;
     justify-content: center;
     gap: 57px;
-    padding-top: 100px;
-    padding-bottom: 120px;
-    cursor: pointer;
+    padding-top: 80px;
+    padding-bottom: 100px;
 
     // .buttons__item
     &__item {
@@ -367,6 +370,7 @@
       border: 1.547px solid #f00;
       background: #f00;
       box-shadow: 6.1875px 6.1875px 0px 0px #e5a89c;
+      cursor: pointer;
     }
   }
   .big-text {

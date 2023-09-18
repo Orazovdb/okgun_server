@@ -80,7 +80,7 @@ cd
 
 <style lang="scss" scoped>
   .swiper-block {
-    height: calc(100vh - 20vh);
+    height: calc(100vh - 8vh);
     background-color: #f7f7f7;
     margin-bottom: 40px;
     @media (max-width: 992px) {
