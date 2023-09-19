@@ -48,18 +48,6 @@
       slide: {
         type: Object,
         default: () => null
-      },
-      image_path_tm: {
-        type: String,
-        default: () => null
-      },
-			image_path_ru: {
-        type: String,
-        default: () => null
-      },
-			image_path_en: {
-        type: String,
-        default: () => null
       }
     },
     data() {
