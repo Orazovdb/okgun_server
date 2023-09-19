@@ -86,7 +86,7 @@ export default {
 
 <style lang="scss" scoped>
 .swiper-block {
-  height: calc(100vh - 8vh);
+  height: calc(100vh - 25vh);
   background-color: #f7f7f7;
   margin-bottom: 40px;
   @media (max-width: 992px) {
