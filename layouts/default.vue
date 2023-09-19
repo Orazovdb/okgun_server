@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
     <the-header></the-header>
+    <div ref="main"></div>
     <main class="main">
       <nuxt />
       <client-only>
@@ -20,8 +21,37 @@ export default {
       document.querySelector(".wrapper").scrollTop = 0;
     },
   },
+  data() {
+    return {
+      observer: null,
+    };
+  },
   head() {
     return this.$nuxtI18nHead();
+  },
+  mounted() {
+    if (this.$refs.main) {
+      const options =
+        {
+          rootMargin: "100px 0px 0px 0px",
+          threshold: 0.4,
+        } || {};
+      this.observer = new IntersectionObserver(async ([entry]) => {
+        if (entry && entry.isIntersecting) {
+          const elemAos = document.querySelectorAll(".aos");
+          console.log(elemAos);
+          elemAos.forEach((elem) => {
+            if (!elem.classList.contains("menu")) {
+              elem.classList.remove("aos");
+            }
+          });
+        }
+      }, options);
+      this.observer.observe(this.$refs.main);
+    }
+  },
+  destroyed() {
+    this.observer.disconnect();
   },
 };
 </script>
