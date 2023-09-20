@@ -13,30 +13,9 @@
               alt=""
             />
           </div>
-          <!-- <div class="swiper-block__container">
-            <div class="swiper-block__content">
-              <h1>{{ translateTitle(slider) }}</h1>
-              <p>
-                {{ translateText(slider) }}
-              </p>
-              <div class="swiper-block__button-wrapper">
-                <base-button banner>Doly maglumat</base-button>
-              </div>
-            </div>
-          </div> -->
+         
         </div>
       </div>
-      <!-- <div class="__container relative">
-        <div class="vacancy-popup">
-          <div class="vacancy-popup__header">
-            <h3>Wakansiya</h3>
-            <base-icon icon="closeIcon" />
-          </div>
-          <div class="vacancy-popup__body">
-            <p>Täze wakansiýalar bilen tanyşyň</p>
-          </div>
-        </div>
-      </div> -->
       <div class="swiper-block__bullets-wrapper">
         <div class="swiper-block__bullets swiper-pagination-bullet"></div>
       </div>
