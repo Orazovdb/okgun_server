@@ -263,7 +263,7 @@
             padding: 12px 24px;
             color: #101828;
             font-size: 16px;
-            font-weight: 700;
+            font-weight: 500;
             line-height: 120%;
             white-space: nowrap;
             &.time {

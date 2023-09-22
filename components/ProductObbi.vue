@@ -2,7 +2,6 @@
   <div class="product-id">
     <div class="product-id__title">
       <h2>{{ translateTitle(category) }}</h2>
-      <span>{{ $t("productsCatalog") }}</span>
     </div>
     <div class="product-id__row">
       <div

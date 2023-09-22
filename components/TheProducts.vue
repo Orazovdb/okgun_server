@@ -22,7 +22,6 @@
           <div class="buttons">
             <div class="buttons__item" v-for="catalog in catalogs" :key="catalog.uuid" @click="seePdf(catalog)">
               <span class="big-text">{{ translateTitle(catalog) }}</span>
-              <span class="small-text">{{ $t('productsCatalog') }}</span>
             </div>
           </div>
         </div>
