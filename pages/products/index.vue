@@ -1,10 +1,10 @@
 <template>
   <div class="products">
     <div class="products__container">
-      <nuxt-link to="/products" class="products-title-block">
+      <!-- <nuxt-link to="/products" class="products-title-block">
         <h1>{{ $t('products') }}</h1>
-      </nuxt-link>
-      <div class="products-buttons-block">
+      </nuxt-link> -->
+      <!-- <div class="products-buttons-block">
         <button
           v-for="(button, index) in categories"
           :key="button.uuid"
@@ -13,15 +13,8 @@
         >
           {{ translateTitle(button) }}
         </button>
-      </div>
-      <div class="products__row">
-        <div class="product" v-for="item in products" :key="item.uuid">
-          <div class="product__image">
-            <img :src="`${baseURL}/uploads/products/${item.image_path}`" alt="" />
-          </div>
-          <p>{{ translateTitle(item) }}</p>
-        </div>
-      </div>
+      </div> -->
+      <the-products-page :categories="categories" :products="products" @categoryProducts="getCategoryProducts" :catalogs="catalogs" />
       <base-pagination
         v-if="paginationCount > 1"
         :modelValue="page"
@@ -35,7 +28,7 @@
 <script>
   import translate from '@/mixins/translate'
   import { mapGetters } from 'vuex'
-  import { GET_CATEGORIES, GET_CATEGORIES_PRODUCTS } from '@/api/home.api'
+  import { GET_CATEGORIES, GET_CATEGORIES_PRODUCTS, GET_CATALOG } from '@/api/home.api'
   export default {
     mixins: [translate],
     head() {
@@ -58,18 +51,29 @@
         selectedId: null,
         categories: null,
         products: null,
+        catalogs: null,
         limit: 10,
         page: 1,
         paginationCount: 0
       }
     },
     async fetch() {
-      await this.fetchCategories()
+      await Promise.all([this.fetchCatalog(), this.fetchCategories()])
     },
     computed: {
       ...mapGetters(['baseURL'])
     },
     methods: {
+      async fetchCatalog() {
+        try {
+          const { data, status } = await GET_CATALOG()
+          if (status) {
+            this.catalogs = data || []
+          }
+        } catch (error) {
+          console.log(error)
+        }
+      },
       async fetchCategories() {
         try {
           const { data, status } = await GET_CATEGORIES()
@@ -95,6 +99,7 @@
           if (status) {
             this.paginationCount = Math.ceil(data.count / this.limit)
             this.products = data.products || []
+						console.log('asdadf');
           }
         } catch (error) {
           console.log(error)

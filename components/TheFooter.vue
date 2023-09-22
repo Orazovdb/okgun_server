@@ -89,6 +89,7 @@ export default {
   }
 }
 .footer {
+	font-family: sans-serif !important;
   padding: 80px 0;
   background: var(--text);
   @media (max-width: 767px) {

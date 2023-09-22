@@ -69,7 +69,7 @@
         this.observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry && entry.isIntersecting) {
-              this.$refs.image.classList.add('aos')
+              this.$refs.image.classList.add('aos-animate')
               const elemAos = document.querySelectorAll('.aos')
               console.log(elemAos)
               elemAos.forEach((elem) => {
@@ -236,7 +236,7 @@
       gap: 30px;
       transform: translateY(80px);
       opacity: 0;
-      &.aos {
+      &.aos-animate {
         opacity: 1;
         transform: translateY(0px);
         transition: 1s all;
@@ -367,12 +367,6 @@
     gap: 57px;
     padding-top: 80px;
     padding-bottom: 100px;
-    @media (max-width: 767px) {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 30px;
-      padding-bottom: 40px;
-    }
 
     // .buttons__item
     &__item {

@@ -31,11 +31,11 @@
           loop: true,
           slidesPerView: 2,
           slidesPerGroup: 1,
-          speed: 1000,
+          speed: 2000,
           spaceBetween: 20,
           clickable: true,
           autoplay: {
-            delay: 5000
+            delay: 2000
           },
           navigation: {
             nextEl: '.swiper-button-next',
