@@ -132,7 +132,9 @@
       &.address {
         width: 251px;
         order: 5;
-        grid-column: 1 / span 2;
+        @media (max-width: 767px) {
+          grid-column: 1 / span 2;
+        }
       }
       &.icons {
         width: 300px;
