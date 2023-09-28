@@ -1,5 +1,5 @@
 export default {
-  home: 'Домашная страница',
+  home: ' Главная страница',
   products: 'Продукты',
   about: 'О нас',
   vacancy: 'Вакансия',

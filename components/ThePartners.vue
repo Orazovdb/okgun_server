@@ -31,11 +31,13 @@
           loop: true,
           slidesPerView: 2,
           slidesPerGroup: 1,
-          speed: 2000,
+          speed: 3000,
           spaceBetween: 20,
           clickable: true,
+          pauseOnMouseEnter: true,
           autoplay: {
-            delay: 2000
+            delay: 1,
+            disableOnInteraction: false
           },
           navigation: {
             nextEl: '.swiper-button-next',
@@ -47,11 +49,13 @@
           },
           breakpoints: {
             370: {
-              slidesPerView: 1.4
+              slidesPerView: 1.4,
+              speed: 200
             },
             479: {
               slidesPerView: 2,
-              spaceBetween: 40
+              spaceBetween: 40,
+              speed: 200
             },
             767: {
               slidesPerView: 3,
@@ -72,6 +76,9 @@
 </script>
 
 <style lang="scss" scoped>
+  .swiper-wrapper {
+    transition-timing-function: linear;
+  }
   .partners {
     margin-bottom: 70px;
     @media (max-width: 767px) {
@@ -85,7 +92,7 @@
       line-height: 120%;
       margin-bottom: 50px;
       @media (max-width: 767px) {
-        font-size: 30px;
+        font-size: 27px;
         text-align: left;
         padding: 0 20px;
         margin-bottom: 30px;
@@ -128,6 +135,12 @@
       img {
         width: 160px;
         min-height: 60px;
+      }
+      @media (max-width: 767px) {
+        img {
+          width: 140px;
+          min-height: 40px;
+        }
       }
     }
   }

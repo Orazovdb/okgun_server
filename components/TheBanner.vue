@@ -169,6 +169,16 @@
           height: 40px;
         }
       }
+      @media (max-width: 767px) {
+        width: 30px;
+        height: 30px;
+        &:deep() {
+          svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
     }
 
     &__next-navigation {
@@ -190,6 +200,16 @@
           width: 40px;
           height: 40px;
           font-weight: 900;
+        }
+      }
+      @media (max-width: 767px) {
+        width: 30px;
+        height: 30px;
+        &:deep() {
+          svg {
+            width: 20px;
+            height: 20px;
+          }
         }
       }
     }

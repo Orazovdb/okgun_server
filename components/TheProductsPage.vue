@@ -12,10 +12,10 @@
             :key="slide.uuid"
             @click.stop="$router.push(localeLocation(`/products/${slide.uuid}`))"
           >
+            <p>{{ translateTitle(slide) }}</p>
             <div class="products-swiper-block__image">
               <img :src="`${baseURL}/uploads/products/${slide.image}`" alt="" />
             </div>
-            <p>{{ translateTitle(slide) }}</p>
           </div>
         </div>
         <div>
@@ -116,6 +116,7 @@
       margin-bottom: 30px;
     }
     &__container {
+      padding: 0;
     }
   }
   .products-title-block {
@@ -124,7 +125,8 @@
     justify-content: center;
     padding-bottom: 50px;
     @media (max-width: 767px) {
-      padding-bottom: 10px;
+      padding-bottom: 0px;
+      margin-bottom: 0 !important;
     }
     h1 {
       color: var(--text);
@@ -234,15 +236,19 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 30px;
-      transform: translateY(80px);
+      transform: translateY(20px);
       opacity: 0;
-      &.aos-animate {
+      &.aos {
         opacity: 1;
         transform: translateY(0px);
         transition: 1s all;
       }
       @media (max-width: 767px) {
         grid-template-columns: repeat(2, 1fr);
+        @media (max-width: 767px) {
+          transform: translateY(40px);
+          opacity: 1;
+        }
       }
       @media (max-width: 479px) {
         grid-template-columns: repeat(1, 1fr);
@@ -257,29 +263,23 @@
         transform: scale(1.02);
       }
       p {
-        display: inline-block;
-        position: absolute;
-        left: 50%;
-        top: 2%;
         width: 100%;
         display: flex;
         justify-content: center;
-        border-radius: 10px;
+        border-radius: 6px 6px 0 0;
         white-space: nowrap;
         background: #fff;
         padding: 10px 30px;
-        transform: translateX(-50%);
-        color: #42454a;
+        color: var(--white);
         font-size: 20px;
         text-align: center;
         font-weight: 800;
         line-height: 120%;
+        background-color: var(--primary);
         @media (max-width: 767px) {
           font-size: 14px;
-          margin-top: 16px;
           font-weight: 700;
           top: 0;
-          margin-top: 10px;
         }
       }
     }
@@ -293,6 +293,7 @@
       justify-content: center;
       background: #f1f6fa;
       box-shadow: 0.1px 0.1px 10px #d5d5d5;
+      border-radius: 0 0 10px 10px;
       img {
         width: 100%;
         height: 100%;
@@ -367,6 +368,12 @@
     gap: 57px;
     padding-top: 80px;
     padding-bottom: 100px;
+    @media (max-width: 767px) {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      padding: 40px 0;
+    }
 
     // .buttons__item
     &__item {
@@ -378,6 +385,9 @@
       background: #f00;
       box-shadow: 6.1875px 6.1875px 0px 0px #e5a89c;
       cursor: pointer;
+      @media (max-width: 767px) {
+        width: 100%;
+      }
     }
   }
   .big-text {
@@ -389,6 +399,9 @@
     font-weight: 900;
     line-height: 120%; /* 60px */
     text-transform: capitalize;
+    @media (max-width: 767px) {
+      font-size: 30px;
+    }
   }
   .small-text {
     color: #fff;
