@@ -1,11 +1,11 @@
 <template>
-  <div class="products" ref="aos">
+  <div class="products">
     <div class="products__container">
       <nuxt-link :to="localeLocation('/products')" @click.prevent class="products-title-block">
         <h1>{{ $t('products') }}</h1>
       </nuxt-link>
       <div class="products-swiper-block swiper">
-        <div class="products-swiper-block__wrapper swiper-wrapper" ref="image">
+        <div class="products-swiper-block__wrapper swiper-wrapper">
           <div
             class="products-swiper-block__slide swiper-slide"
             v-for="slide in categories"
@@ -58,35 +58,6 @@
     },
     computed: {
       ...mapGetters(['baseURL'])
-    },
-    mounted() {
-      if (this.$refs.aos) {
-        const options =
-          {
-            rootMargin: '50px 0px 0px 0px',
-            threshold: 0.4
-          } || {}
-        this.observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry && entry.isIntersecting) {
-              this.$refs.image.classList.add('aos-animate')
-              const elemAos = document.querySelectorAll('.aos')
-              console.log(elemAos)
-              elemAos.forEach((elem) => {
-                if (
-                  !elem.classList.contains('products-swiper-block__wrapper') &&
-                  !elem.classList.contains('menu') &&
-                  !elem.classList.contains('about__image') &&
-                  !elem.classList.contains('about__content')
-                ) {
-                  elem.classList.remove('aos')
-                }
-              })
-            }
-          })
-        }, options)
-      }
-      this.observer.observe(this.$refs.aos)
     },
     destroyed() {
       this.observer.disconnect()
@@ -236,19 +207,8 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 30px;
-      transform: translateY(20px);
-      opacity: 0;
-      &.aos {
-        opacity: 1;
-        transform: translateY(0px);
-        transition: 1s all;
-      }
       @media (max-width: 767px) {
         grid-template-columns: repeat(2, 1fr);
-        @media (max-width: 767px) {
-          transform: translateY(40px);
-          opacity: 1;
-        }
       }
       @media (max-width: 479px) {
         grid-template-columns: repeat(1, 1fr);
