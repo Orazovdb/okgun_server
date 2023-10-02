@@ -50,12 +50,12 @@
           breakpoints: {
             370: {
               slidesPerView: 1.4,
-              speed: 200
+              speed: 2000
             },
             479: {
               slidesPerView: 2,
               spaceBetween: 40,
-              speed: 200
+              speed: 2000
             },
             767: {
               slidesPerView: 3,
