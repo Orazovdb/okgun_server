@@ -59,9 +59,6 @@
     computed: {
       ...mapGetters(['baseURL'])
     },
-    destroyed() {
-      this.observer.disconnect()
-    },
     methods: {
       categoryProducts(item) {
         this.selectedId = item.uuid

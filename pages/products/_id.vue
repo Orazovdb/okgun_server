@@ -1,5 +1,6 @@
 <template>
   <div class="products-id">
+    <the-loader :preloader="preloader"></the-loader>
     <div class="products-id__container">
       <ProductObbi
         v-if="products && products.length > 0"
@@ -19,7 +20,8 @@
         limit: 150,
         page: 1,
         paginationCount: null,
-        products: null
+        products: null,
+        preloader: false
       }
     },
     async fetch() {
@@ -28,6 +30,8 @@
     },
     methods: {
       async fetchCategories() {
+        this.preloader = true
+
         try {
           const { data, status } = await GET_CATEGORIES()
           if (status) {
@@ -55,6 +59,10 @@
           }
         } catch (error) {
           console.log(error)
+        } finally {
+          setTimeout(() => {
+            this.preloader = false
+          }, 1500)
         }
       },
       async updatePage(p) {

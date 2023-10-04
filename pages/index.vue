@@ -44,17 +44,15 @@
     },
 
     async fetch() {
-      await Promise.all([this.fetchSlider(), this.fetchCatalog(), this.fetchServices(), this.fetchCategories(), this.fetchAboutUs()])
-      this.preloader = true
-      setTimeout(() => {
-        this.preloader = false
-      }, 1200)
+      await this.fetchSlider()
+      await this.fetchCatalog()
+      await this.fetchServices()
+      await this.fetchCategories()
+      await this.fetchAboutUs()
     },
     methods: {
       async fetchSlider() {
-        // setTimeout(() => {
-        //   this.preloader = true
-        // }, 2000)
+        this.preloader = true
         try {
           const { data, status } = await GET_SLIDER()
 
@@ -63,7 +61,6 @@
           }
         } catch (error) {
           console.log(error)
-        } finally {
         }
       },
       async fetchCatalog() {
@@ -84,6 +81,10 @@
           }
         } catch (error) {
           console.log(error)
+        } finally {
+          setTimeout(() => {
+            this.preloader = false
+          }, 1500)
         }
       },
       async fetchServices() {
