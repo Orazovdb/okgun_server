@@ -115,7 +115,6 @@
       top: 50%;
       transform: translateY(-50%);
       z-index: 30;
-      padding: 0 20px 0 0;
       img {
         width: 100%;
         height: 100%;

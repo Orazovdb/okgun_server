@@ -30,22 +30,12 @@
         options: {
           loop: true,
           slidesPerView: 2,
-          slidesPerGroup: 1,
           speed: 3000,
           spaceBetween: 20,
-          clickable: true,
-          pauseOnMouseEnter: true,
+          pauseOnMouseEnter: false,
           autoplay: {
             delay: 1,
             disableOnInteraction: false
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-          },
-          pagination: {
-            el: '.swiper-pagination-bullet',
-            clickable: true
           },
           breakpoints: {
             370: {
@@ -115,12 +105,12 @@
   }
   .partners-swiper {
     width: 100%;
-
     overflow-x: hidden;
     &__wrapper {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       grid-auto-flow: column;
+      transition-timing-function: linear;
     }
 
     &__slide {

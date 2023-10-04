@@ -22,7 +22,7 @@
           <div class="buttons">
             <div class="buttons__item" v-for="catalog in catalogs" :key="catalog.uuid" @click="seePdf(catalog)">
               <span class="big-text">{{ translateTitle(catalog) }}</span>
-              <span class="small-text">{{ $t('productsCatalog') }}</span>
+              <div class="small-text">{{ $t('productsCatalog') }}</div>
             </div>
           </div>
         </div>
@@ -371,5 +371,6 @@
     font-weight: 400;
     line-height: 120%;
     text-transform: lowercase;
+    font-family: 'Times New Roman', Times, serif;
   }
 </style>

@@ -1,19 +1,6 @@
 <template>
   <div class="products">
     <div class="products__container">
-      <!-- <nuxt-link to="/products" class="products-title-block">
-        <h1>{{ $t('products') }}</h1>
-      </nuxt-link> -->
-      <!-- <div class="products-buttons-block">
-        <button
-          v-for="(button, index) in categories"
-          :key="button.uuid"
-          @click="categoryProducts(button)"
-          :class="['products-buttons-block__button', { active: selectedId ? selectedId === button.uuid : index === 0 }]"
-        >
-          {{ translateTitle(button) }}
-        </button>
-      </div> -->
       <the-products-page :categories="categories" :products="products" @categoryProducts="getCategoryProducts" :catalogs="catalogs" />
       <base-pagination
         v-if="paginationCount > 1"
@@ -99,7 +86,7 @@
           if (status) {
             this.paginationCount = Math.ceil(data.count / this.limit)
             this.products = data.products || []
-						console.log('asdadf');
+            console.log('asdadf')
           }
         } catch (error) {
           console.log(error)

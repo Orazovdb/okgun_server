@@ -1,6 +1,7 @@
 <template>
   <client-only>
     <div>
+      <the-loader :preloader="preloader"></the-loader>
       <the-banner :sliders="sliders" />
       <the-products :categories="categories" :products="products" @categoryProducts="getCategoryProducts" :catalogs="catalogs" />
       <the-about :aboutUs="aboutUs && aboutUs[0]" />
@@ -38,21 +39,31 @@
         products: null,
         limit: 10,
         page: 1,
+        preloader: false
       }
     },
-    
+
     async fetch() {
       await Promise.all([this.fetchSlider(), this.fetchCatalog(), this.fetchServices(), this.fetchCategories(), this.fetchAboutUs()])
+      this.preloader = true
+      setTimeout(() => {
+        this.preloader = false
+      }, 1200)
     },
     methods: {
       async fetchSlider() {
+        // setTimeout(() => {
+        //   this.preloader = true
+        // }, 2000)
         try {
           const { data, status } = await GET_SLIDER()
+
           if (status) {
             this.sliders = data || []
           }
         } catch (error) {
           console.log(error)
+        } finally {
         }
       },
       async fetchCatalog() {
@@ -117,4 +128,3 @@
     }
   }
 </script>
-
