@@ -7,7 +7,7 @@
         </nuxt-link>
         <div class="footer__item mail">
           <h3>{{ $t('email') }}</h3>
-          <a href="info@okgun.ru">info@okgun.ru</a>
+          <a href="mailto:info@okgun.ru">info@okgun.ru</a>
         </div>
         <div class="footer__item faks">
           <h3>{{ $t('faks') }}</h3>

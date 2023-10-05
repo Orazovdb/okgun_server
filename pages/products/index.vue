@@ -1,5 +1,6 @@
 <template>
   <div class="products">
+    <the-loader :preloader="preloader"></the-loader>
     <div class="products__container">
       <the-products-page :categories="categories" :products="products" @categoryProducts="getCategoryProducts" :catalogs="catalogs" />
       <base-pagination
@@ -41,7 +42,8 @@
         catalogs: null,
         limit: 10,
         page: 1,
-        paginationCount: 0
+        paginationCount: 0,
+        preloader: false
       }
     },
     async fetch() {
@@ -50,8 +52,14 @@
     computed: {
       ...mapGetters(['baseURL'])
     },
+    mounted() {
+      setTimeout(() => {
+        this.preloader = false
+      }, 1000)
+    },
     methods: {
       async fetchCatalog() {
+        this.preloader = true
         try {
           const { data, status } = await GET_CATALOG()
           if (status) {
@@ -59,6 +67,10 @@
           }
         } catch (error) {
           console.log(error)
+        } finally {
+          setTimeout(() => {
+            this.preloader = false
+          }, 1000)
         }
       },
       async fetchCategories() {

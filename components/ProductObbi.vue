@@ -6,7 +6,7 @@
     <div class="product-id__row">
       <div class="product-id__item" v-for="product in products" :key="product.uuid" :product="product">
         <div class="product-id__image">
-          <img :src="`${baseURL}/uploads/products/${product.image_path}`" alt="img" />
+          <img loading="lazy" :data-src="`${baseURL}/uploads/products/${product.image_path}`" />
         </div>
         <h4>{{ translateTitle(product) }}</h4>
         <h5>{{ translateDescription(product) }}</h5>
@@ -25,9 +25,11 @@
 
 <script>
   import translate from '@/mixins/translate'
+  import observer from '@/mixins/observer'
+
   import { mapGetters } from 'vuex'
   export default {
-    mixins: [translate],
+    mixins: [translate, observer],
     props: {
       products: {
         type: Array,
@@ -130,10 +132,16 @@
       height: 200px;
       margin: 0 auto;
       margin-bottom: 10px;
+      background-size: 180px;
+      position: relative;
+      z-index: 30;
+
       img {
         width: 100%;
         height: 100%;
         object-fit: contain;
+        position: absolute;
+        z-index: 3;
       }
       @media (max-width: 767px) {
         margin-bottom: 20px;

@@ -28,6 +28,11 @@
       await this.fetchCategories()
       await this.fetchCategoryProducts()
     },
+    mounted() {
+      setTimeout(() => {
+        this.preloader = false
+      }, 1000)
+    },
     methods: {
       async fetchCategories() {
         this.preloader = true
@@ -62,7 +67,7 @@
         } finally {
           setTimeout(() => {
             this.preloader = false
-          }, 1500)
+          }, 1000)
         }
       },
       async updatePage(p) {

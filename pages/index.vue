@@ -84,7 +84,7 @@
         } finally {
           setTimeout(() => {
             this.preloader = false
-          }, 1500)
+          }, 1000)
         }
       },
       async fetchServices() {
