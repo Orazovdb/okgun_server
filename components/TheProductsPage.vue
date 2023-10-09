@@ -20,10 +20,17 @@
         </div>
         <div>
           <div class="buttons">
-            <div class="buttons__item" v-for="catalog in catalogs" :key="catalog.uuid" @click="seePdf(catalog)">
-              <span class="big-text">{{ translateTitle(catalog) }}</span>
-              <div class="small-text">{{ $t('productsCatalog') }}</div>
-            </div>
+            <!-- @click="seePdf(catalog)" -->
+            <a
+              href="#"
+              :download="catalog.download"
+              class="buttons__item"
+              v-for="catalog in catalogs"
+              :key="catalog.id"
+              @click="downloadPdf(catalog.download)"
+            >
+              <base-icon :icon="catalog.icon" />
+            </a>
           </div>
         </div>
       </div>
@@ -43,17 +50,29 @@
       products: {
         type: Array,
         default: () => []
-      },
-      catalogs: {
-        type: Array,
-        default: () => []
       }
+      // catalogs: {
+      //   type: Array,
+      //   default: () => []
+      // }
     },
     mixins: [translate],
     data() {
       return {
         selectedId: null,
-        observer: null
+        observer: null,
+        catalogs: [
+          {
+            id: 1,
+            download: '../assets/Obby.pdf',
+            icon: 'logoObbi'
+          },
+          {
+            id: 2,
+            download: '../assets/Okgun.pdf',
+            icon: 'logoOkgun'
+          }
+        ]
       }
     },
     computed: {
@@ -64,11 +83,18 @@
         this.selectedId = item.uuid
         this.$emit('categoryProducts', item.uuid)
       },
-      seePdf(item) {
+      // seePdf(item) {
+      //   const link = document.createElement('a')
+      //   link.href = `${this.baseURL}/uploads/pdf/${item.pdf_path}`
+      //   link.setAttribute('download', this.translateTitle(item))
+      //   link.setAttribute('target', 'download')
+      //   document.body.appendChild(link)
+      //   link.click()
+      //   document.body.removeChild(link)
+      // },
+      downloadPdf(file) {
         const link = document.createElement('a')
-        link.href = `${this.baseURL}/uploads/pdf/${item.pdf_path}`
-        link.setAttribute('download', this.translateTitle(item))
-        link.setAttribute('target', 'download')
+        link.download = file
         document.body.appendChild(link)
         link.click()
         document.body.removeChild(link)
@@ -335,13 +361,18 @@
     // .buttons__item
     &__item {
       width: 400px;
-      padding: 10px 20px;
+      padding: 30px 20px;
       text-align: center;
       border-radius: 12.375px;
-      border: 1.547px solid #f00;
       background: #f00;
-      box-shadow: 6.1875px 6.1875px 0px 0px #e5a89c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      display: block;
       cursor: pointer;
+      &:first-child {
+        background-color: #f1f6fa;
+      }
       @media (max-width: 767px) {
         width: 100%;
       }
