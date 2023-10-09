@@ -21,14 +21,7 @@
         <div>
           <div class="buttons">
             <!-- @click="seePdf(catalog)" -->
-            <a
-              href="#"
-              :download="catalog.download"
-              class="buttons__item"
-              v-for="catalog in catalogs"
-              :key="catalog.id"
-              @click="downloadPdf(catalog.download)"
-            >
+            <a class="buttons__item" v-for="catalog in catalogs" :key="catalog.id" :href="catalog.download" download>
               <base-icon :icon="catalog.icon" />
             </a>
           </div>
@@ -64,12 +57,12 @@
         catalogs: [
           {
             id: 1,
-            download: '../assets/Obby.pdf',
+            download: '/Obby.pdf',
             icon: 'logoObbi'
           },
           {
             id: 2,
-            download: '../assets/Okgun.pdf',
+            download: '/Okgun.pdf',
             icon: 'logoOkgun'
           }
         ]
@@ -123,14 +116,14 @@
         // document.body.appendChild(link)
         // link.click()
         // document.body.removeChild(link)
-      },
-      downloadPdf(file) {
-        const link = document.createElement('a')
-        link.download = file
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
       }
+      // downloadPdf(file) {
+      //   const link = document.createElement('a')
+      //   link.download = file
+      //   document.body.appendChild(link)
+      //   link.click()
+      //   document.body.removeChild(link)
+      // }
     }
   }
 </script>
