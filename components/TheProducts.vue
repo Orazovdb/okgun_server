@@ -22,7 +22,8 @@
           <div class="buttons">
             <!-- @click="seePdf(catalog)" -->
             <a class="buttons__item" v-for="catalog in catalogs" :key="catalog.id" :href="catalog.download" download>
-              <base-icon :icon="catalog.icon" />
+              <base-icon :icon="catalog.icon" v-if="catalog.icon" />
+              <img :src="catalog.img" alt="" v-if="catalog.img" />
             </a>
           </div>
         </div>
@@ -58,7 +59,7 @@
           {
             id: 1,
             download: '/Obby.pdf',
-            icon: 'logoObbi'
+            img: '/obbi.png'
           },
           {
             id: 2,
@@ -398,15 +399,14 @@
       padding: 30px 20px;
       text-align: center;
       border-radius: 12.375px;
-      background: #f00;
       display: flex;
       justify-content: center;
       align-items: center;
-      display: block;
       cursor: pointer;
-      &:first-child {
-        background-color: #f1f6fa;
-      }
+      background-color: #9ca7b0;
+			img {
+				width: 200px;
+			}
       @media (max-width: 767px) {
         width: 100%;
       }

@@ -146,7 +146,7 @@
       .logo-burger {
         display: none;
         position: relative;
-        z-index: 102;
+        z-index: 202;
       }
       img {
         width: 100%;
@@ -259,7 +259,7 @@
         top: 0;
         height: 100vh;
         width: 100%;
-        background: linear-gradient(0deg, #e7524c 0%, #e7524c 100%), #fff;
+        background: rgba(0, 0, 0, 0.9);
         backdrop-filter: blur(3px);
         z-index: 200;
         transition: all 0.3s;
@@ -318,6 +318,8 @@
           font-weight: 600;
           text-transform: uppercase;
           color: #fff;
+          padding-bottom: 4px;
+          display: block;
         }
       }
     }
@@ -403,6 +405,6 @@
   .nuxt-link-active,
   .nuxt-link-exact-active {
     color: var(--primary);
-    border-bottom: 1px solid var(--primary);
+    border-bottom: 2px solid var(--primary);
   }
 </style>
