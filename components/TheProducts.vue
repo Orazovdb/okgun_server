@@ -22,8 +22,7 @@
           <div class="buttons">
             <!-- @click="seePdf(catalog)" -->
             <a class="buttons__item" v-for="catalog in catalogs" :key="catalog.id" :href="catalog.download" download>
-              <base-icon :icon="catalog.icon" v-if="catalog.icon" />
-              <img :src="catalog.img" alt="" v-if="catalog.img" />
+              <img :src="catalog.img" alt="" />
             </a>
           </div>
         </div>
@@ -64,7 +63,7 @@
           {
             id: 2,
             download: '/Okgun.pdf',
-            icon: 'logoOkgun'
+            img: '/okgun.png'
           }
         ]
       }
@@ -403,10 +402,10 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      background-color: #9ca7b0;
-			img {
-				width: 200px;
-			}
+      background: #ffe6e6;
+      img {
+        width: 200px;
+      }
       @media (max-width: 767px) {
         width: 100%;
       }
