@@ -394,8 +394,10 @@
 
     // .buttons__item
     &__item {
-      width: 400px;
+      width: 300px;
       padding: 30px 20px;
+      height: 200px;
+      border-radius: 50%;
       text-align: center;
       border-radius: 12.375px;
       display: flex;
@@ -403,6 +405,7 @@
       align-items: center;
       cursor: pointer;
       background: #ffe6e6;
+      box-shadow: 0.4px 0.4px 5px #f00;
       img {
         width: 200px;
       }

@@ -52,7 +52,7 @@
               spaceBetween: 60
             },
             992: {
-              slidesPerView: 4,
+              slidesPerView: 3,
               spaceBetween: 50
             }
           }
