@@ -28,6 +28,7 @@ export default {
   successSend: 'Hatyňyz üstünlikli ugradyldy !',
   productsCatalog: 'katalog',
   seeCatalog: 'Katalogy gör',
+  seeCatalog2: 'Katalogy gör',
   weight: 'Agramy',
   srok: 'Ýaramlylyk möhleti',
   keywords:
