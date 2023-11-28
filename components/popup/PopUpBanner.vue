@@ -82,7 +82,6 @@
     },
     methods: {
       toggleLanguage(key) {
-        console.log(key)
         this.activeLang = key
       },
       uploadTmFile(file) {

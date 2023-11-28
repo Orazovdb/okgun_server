@@ -48,9 +48,7 @@
           } || {}
         this.observer = new IntersectionObserver(async ([entry]) => {
           if (entry && entry.isIntersecting) {
-            console.log('footer')
             const elemAos = document.querySelectorAll('.aos')
-            console.log(elemAos)
             elemAos.forEach((elem) => {
               if (!elem.classList.contains('contact__row') && !elem.classList.contains('menu')) elem.classList.remove('aos')
             })

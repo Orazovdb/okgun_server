@@ -75,7 +75,6 @@ export default {
         if (entry && entry.isIntersecting) {
           this.$refs.image.classList.add("aos");
           const elemAos = document.querySelectorAll(".aos");
-          // console.log(elemAos);
           elemAos.forEach((elem) => {
             if (
               !elem.classList.contains("contact__row") &&

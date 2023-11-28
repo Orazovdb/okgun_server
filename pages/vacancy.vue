@@ -101,7 +101,6 @@
     },
     async fetch() {
       await this.fetchVacancy()
-      console.log(this.fetchVacancy())
     },
     methods: {
       async fetchVacancy() {

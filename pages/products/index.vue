@@ -98,7 +98,6 @@
           if (status) {
             this.paginationCount = Math.ceil(data.count / this.limit)
             this.products = data.products || []
-            console.log('asdadf')
           }
         } catch (error) {
           console.log(error)
