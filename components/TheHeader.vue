@@ -113,6 +113,12 @@
             to: '/vacancy',
             name: this.$t('vacancy'),
             exact: false
+          },
+          {
+            id: 4,
+            to: '/catalogs',
+            name: this.$t('catalog'),
+            exact: false
           }
         ]
       }

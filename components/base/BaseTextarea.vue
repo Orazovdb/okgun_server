@@ -62,7 +62,7 @@ export default {
     padding: 12px 12px 0px;
     background: #fff;
     resize: none;
-		height: 87%;
+    height: 92%;
     &:valid {
       color: var(--text);
     }
@@ -76,7 +76,7 @@ export default {
     &::placeholder {
       border-radius: 16px;
       color: var(--text);
-			font-weight: 400;
+      font-weight: 400;
     }
   }
 }

@@ -9,8 +9,14 @@
           :value="send.name"
           @updateValue="(val) => (send.name = val)"
         />
-        <base-textarea
+        <base-input
           :label="$t('text')"
+          placeholder="..."
+          :value="send.name"
+          @updateValue="(val) => (send.name = val)"
+        />
+        <base-textarea
+          :label="$t('theme')"
           placeholder="..."
           :value="send.context"
           @updateValue="(val) => (send.context = val)"
@@ -124,10 +130,10 @@ export default {
   &__row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 30px;
     .rowspan {
       grid-column-start: 2;
-      grid-row-start: 3;
+      grid-row-start: 4;
       grid-row-end: 1;
       textarea {
         height: 100% !important;

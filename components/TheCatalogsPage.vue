@@ -6,29 +6,21 @@
         @click.prevent
         class="products-title-block"
       >
-        <h1>{{ $t("products") }}</h1>
+        <h1>{{ $t("catalogs") }}</h1>
       </nuxt-link>
       <div class="products-swiper-block swiper">
-        <div class="products-swiper-block__wrapper swiper-wrapper" ref="image">
-          <div
-            class="products-swiper-block__slide swiper-slide"
-            v-for="slide in categories"
-            :key="slide.uuid"
-            @click.stop="
-              $router.push(localeLocation(`/products/${slide.uuid}`))
-            "
+        <div class="buttons">
+          <a
+            class="buttons__item"
+            v-for="catalog in catalogs"
+            :key="catalog.id"
+            :href="catalog.download"
+            @click="seePdf(catalog)"
+            download
           >
-            <p>{{ translateTitle(slide) }}</p>
-            <div class="products-swiper-block__image">
-              <img :src="`${baseURL}/uploads/products/${slide.image}`" alt="" />
-            </div>
-          </div>
-        </div>
-        <div
-          class="products__all-item"
-          @click="$router.push(localeLocation('/products-all'))"
-        >
-          <h1>Täze önümlerimiz</h1>
+            <span class="big-text"> {{ catalog.title_tm }}</span>
+            <span class="small-text">{{ $t("productsCatalog") }}</span>
+          </a>
         </div>
       </div>
     </div>
@@ -168,7 +160,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 50px;
+  padding-bottom: 0px;
   @media (max-width: 767px) {
     padding-bottom: 10px;
   }
@@ -178,6 +170,7 @@ export default {
     font-weight: 900;
     line-height: 120%;
     transition: 0.1s ease 0s;
+    text-transform: capitalize;
   }
   span {
     color: var(--text);

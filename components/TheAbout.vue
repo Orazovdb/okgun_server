@@ -1,45 +1,9 @@
 <template>
   <div class="about" ref="about">
-    <img
-      src="@/assets/img/about-icon_1.svg"
-      alt=""
-      class="absolute icon-left-1"
-    />
-    <img
-      src="@/assets/img/about-icon_2.svg"
-      alt=""
-      class="absolute icon-left-2"
-    />
-    <img
-      src="@/assets/img/about-icon_1.svg"
-      alt=""
-      class="absolute icon-left-3"
-    />
-    <img
-      src="@/assets/img/about-icon_2.svg"
-      alt=""
-      class="absolute icon-left-4"
-    />
-    <img
-      src="@/assets/img/about-icon_2.svg"
-      alt=""
-      class="absolute icon-left-5"
-    />
-    <img
-      src="@/assets/img/about-icon_1.svg"
-      alt=""
-      class="absolute icon-left-6"
-    />
-    <img
-      src="@/assets/img/about-icon_2.svg"
-      alt=""
-      class="absolute icon-left-7"
-    />
-
     <div class="about__container">
       <div class="about__row">
         <div class="about__image" ref="image">
-          <img src="@/assets/img/about.svg" alt="" />
+          <img src="@/assets/img/about.png" alt="" />
         </div>
         <div class="about__content" ref="content">
           <h1>{{ $t("about") }}</h1>
@@ -135,7 +99,7 @@ export default {
     display: grid;
     grid-template-columns: minmax(400px, 560px) 1fr;
     gap: 40px;
-    padding: 50px 0;
+    padding: 30px 0 20px;
     @media (max-width: 767px) {
       grid-template-columns: 1fr;
       gap: 30px;
@@ -147,9 +111,10 @@ export default {
     transform: translateY(-100px);
     transition: 0.4s all;
     opacity: 1;
+    height: 550px;
     &.aos {
       opacity: 1;
-      transform: translateY(-80px);
+      transform: translate(-110px, -80px);
       transition: 0.4s all;
       @media (max-width: 767px) {
         transform: translateY(0);
@@ -159,6 +124,7 @@ export default {
       width: 100%;
       height: 100%;
       transition: all 0.3s ease 0s;
+      object-fit: contain;
     }
     @media (max-width: 767px) {
       order: 2;

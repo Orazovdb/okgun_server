@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import translate from "@/mixins/translate";
-import { mapGetters } from "vuex";
+import translate from "@/mixins/translate"
+import { mapGetters } from "vuex"
 export default {
   props: {
     sliders: {
@@ -41,7 +41,6 @@ export default {
   mixins: [translate],
   data() {
     return {
-      sliderImages: [],
       options: {
         loop: true,
         slidesPerView: 1,
@@ -332,10 +331,10 @@ export default {
         cursor: pointer;
         width: 100%;
         height: 3px;
-        background-color: #4a4a4a;
+        background-color: #d9d9d9;
       }
       .swiper-pagination-bullet-active {
-        background-color: #d9d9d9;
+        background-color: #4a4a4a;
       }
     }
   }
