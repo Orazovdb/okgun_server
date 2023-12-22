@@ -23,7 +23,7 @@
           <td>{{ item.degree_tm }}</td>
           <td>{{ item.gender_tm }}</td>
           <td>{{ item.age }}</td>
-          <td>{{ item.place_tm }}</td>
+          <td>{{ item.welayat_column }}</td>
           <td>{{ item.salary }}</td>
           <td>
             <div class="flex flex-y-center gap-10">
@@ -52,8 +52,8 @@
 </template>
 
 <script>
+import { DELETE_JOB, GET_JOBS } from "@/api/admin.api";
 import PopUpVacancy from "@/components/popup/PopUpVacancy.vue";
-import { GET_JOBS, DELETE_JOB } from "@/api/admin.api";
 
 export default {
   components: { PopUpVacancy },

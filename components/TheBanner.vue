@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import translate from "@/mixins/translate"
-import { mapGetters } from "vuex"
+import translate from "@/mixins/translate";
+import { mapGetters } from "vuex";
 export default {
   props: {
     sliders: {
@@ -131,8 +131,11 @@ export default {
       position: relative;
       order: 2;
       width: calc(100% - 20%);
-      height: 100%;
+      height: 200px;
       transform: translate(0);
+      img {
+        object-fit: contain;
+      }
       // &::before {
       //   content: '';
       //   position: absolute;

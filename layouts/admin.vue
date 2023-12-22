@@ -16,35 +16,6 @@
 <script>
 export default {
   middleware: ["auth-admin"],
-  // data() {
-  //   return {
-  //     adminButton: false,
-  //   }
-  // },
-  // watch: {
-  //   $route(to, from) {
-  //     console.log(to.name)
-  //     if (
-  //       to.name === `admin-contact-us___${this.$i18n.locale}` ||
-  //       to.name === `admin-orders___${this.$i18n.locale}`
-  //     ) {
-  //       this.adminButton = false
-  //     } else {
-  //       this.adminButton = true
-  //     }
-  //   },
-  // },
-  // mounted() {
-  //   console.log(this.$route.name)
-  //   if (
-  //     this.$route.name === `admin-contact-us___${this.$i18n.locale}` ||
-  //     this.$route.name === `admin-orders___${this.$i18n.locale}`
-  //   ) {
-  //     this.adminButton = false
-  //   } else {
-  //     this.adminButton = true
-  //   }
-  // },
 };
 </script>
 
@@ -54,6 +25,7 @@ export default {
   height: 100vh;
   background-color: var(--admin-background);
   overflow: hidden;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
   &__row {
     display: grid;
     grid-template-columns: 290px 1fr;

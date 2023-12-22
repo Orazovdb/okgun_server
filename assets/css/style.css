@@ -51,7 +51,6 @@ body._lock {
 input,
 button,
 textarea {
-  font-family: 'Raleway';
 }
 
 input::-ms-clear {

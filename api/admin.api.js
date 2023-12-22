@@ -26,6 +26,11 @@ export const GET_JOBS = ({ params }) =>
   });
 export const DELETE_JOB = ({ data }) =>
   request({ url: `/admin/jobs/delete`, data, method: "post" });
+export const GET_JOBS_VELAYATS = () =>
+  request({
+    url: `/admin/jobs/all-wel`,
+    method: "get",
+  });
 
 export const ADD_ABOUT = ({ data }) =>
   request({ url: `/admin/about/add`, data, method: "post" });

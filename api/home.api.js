@@ -20,7 +20,10 @@ export const GET_CATEGORIES_PRODUCTS = ({ params }) =>
 export const CONTACT_ADD = ({ data }) =>
   request({ url: `/admin/contact/add`, method: "POST", data: data });
 export const GET_VACANCY = ({ params }) =>
-  request({ url: `/client/user/get-job`, method: "GET", params: params });
+  request({
+    url: `/client/user/get-job`, params,
+    method: "GET",
+  });
 export const GET_PRODUCT = ({ data }) =>
   request({
     url: `/client/user/product-get-by-id?l=${data.limit}&p=${data.page}&id=${data.uuid}`,

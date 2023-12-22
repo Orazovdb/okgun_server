@@ -35,8 +35,9 @@ export default {
             page: this.page,
           },
         });
+        console.log(data);
         if (status) {
-          this.products = data.products || [];
+          this.products = data || [];
           this.paginationCount = Math.ceil(data.count / this.limit);
         }
       } catch (error) {

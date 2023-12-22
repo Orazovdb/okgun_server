@@ -145,7 +145,7 @@ export default {
     margin: 30px auto 0 auto;
     width: 80%;
     border-radius: 10px;
-    background: #f1f6fa;
+    background: #d9e5ee;
     height: 120px;
     text-align: center;
     display: flex;
