@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { GET_ALL_PRODUCTS } from "@/api/home.api";
+import { GET_PRODUCT_NEW } from "@/api/home.api";
 export default {
   data() {
     return {
@@ -29,7 +29,7 @@ export default {
   methods: {
     async fetchCategoryProducts() {
       try {
-        const { data, status } = await GET_ALL_PRODUCTS({
+        const { data, status } = await GET_PRODUCT_NEW({
           data: {
             limit: this.limit,
             page: this.page,

@@ -21,7 +21,8 @@ export const CONTACT_ADD = ({ data }) =>
   request({ url: `/admin/contact/add`, method: "POST", data: data });
 export const GET_VACANCY = ({ params }) =>
   request({
-    url: `/client/user/get-job`, params,
+    url: `/client/user/get-job`,
+    params,
     method: "GET",
   });
 export const GET_PRODUCT = ({ data }) =>
@@ -30,8 +31,14 @@ export const GET_PRODUCT = ({ data }) =>
     method: "GET",
   });
 
-export const GET_ALL_PRODUCTS = ({ data }) =>
+export const GET_PRODUCT_NEW = ({ data }) =>
   request({
-    url: `/client/user/all-product?l=${data.limit}&p=${data.page}&id=${data.uuid}`,
+    url: `/client/user/all-product?l=${data.limit}&p=${data.page}`,
+    method: "GET",
+  });
+
+export const GET_VACANCY_ALL = ({ data }) =>
+  request({
+    url: `/client/user/all-job?l=${data.limit}&p=${data.page}`,
     method: "GET",
   });

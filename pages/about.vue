@@ -7,15 +7,17 @@
     <img src="@/assets/img/about-icon_2.svg" alt="" class="absolute icon-left-5" />
     <img src="@/assets/img/about-icon_1.svg" alt="" class="absolute icon-left-6" />
     <img src="@/assets/img/about-icon_2.svg" alt="" class="absolute icon-left-7" /> -->
-    <div class="about__row" ref="image">
-      <div class="about__image">
-        <img src="@/assets/img/about.png" alt="" />
-      </div>
-      <div class="about__content">
-        <h2>{{ $t("about") }}</h2>
-        <p v-if="aboutUs && aboutUs.length > 0">
-          {{ translateText(aboutUs[0]) }}
-        </p>
+    <div class="__container">
+      <div class="about__row" ref="image">
+        <div class="about__image">
+          <img src="@/assets/img/about.png" alt="" />
+        </div>
+        <div class="about__content">
+          <h2>{{ $t("about") }}</h2>
+          <p v-if="aboutUs && aboutUs.length > 0">
+            {{ translateText(aboutUs[0]) }}
+          </p>
+        </div>
       </div>
     </div>
   </div>

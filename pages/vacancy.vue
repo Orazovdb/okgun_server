@@ -4,7 +4,9 @@
       <div class="vacancy__table-wrapper" ref="image">
         <div class="vacancy__title-block">
           <h2>{{ $t("vacancy") }}</h2>
-          <button class="vacancy__button">{{ $t("allRegions") }}</button>
+          <button class="vacancy__button" @click="fetchVacancyAll">
+            {{ $t("allRegions") }}
+          </button>
           <div class="dropdown">
             <select v-model="selected" name="velayats" id="velayats">
               <option
@@ -38,7 +40,8 @@
               <td>
                 <button class="vacancy__table-button">
                   <span></span>
-                  <span>{{ item[`place_${$i18n.locale}`] }}</span>
+                  {{ item.welayat_column }}
+                  <!-- <span>{{ item[`place_${$i18n.locale}`] }}</span> -->
                 </button>
               </td>
               <td>{{ item.salary }} man</td>
@@ -58,7 +61,7 @@
 
 <script>
 import { GET_JOBS_VELAYATS } from "@/api/admin.api";
-import { GET_VACANCY } from "@/api/home.api";
+import { GET_VACANCY, GET_VACANCY_ALL } from "@/api/home.api";
 
 export default {
   head() {
@@ -84,6 +87,7 @@ export default {
       vacancy: null,
       observer: null,
       velayats: [],
+      vacancyAll: [],
       selected: null,
       tableHead: [
         { id: 1, count: 0, name: "workTime" },
@@ -98,7 +102,6 @@ export default {
   },
   async mounted() {
     await this.fetchJobsVelayats();
-    // await this.fetchJobsVelayats();
     if (this.$refs.aos) {
       const options =
         {
@@ -152,6 +155,24 @@ export default {
         console.log(error);
       }
     },
+
+    async fetchVacancyAll() {
+      try {
+        const { data, status } = await GET_VACANCY_ALL({
+          params: {
+            limit: this.limit,
+            page: this.page,
+          },
+        });
+        if (status) {
+          this.paginationCount = Math.ceil(data.count / this.limit);
+          this.vacancyAll = data.news;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     async updatePage(p) {
       this.page = p;
       await this.fetchVacancy();
@@ -231,6 +252,11 @@ export default {
     font-size: 12px;
     font-weight: 700;
     line-height: 18px;
+    transition: 0.3s all;
+    cursor: pointer;
+    &:active {
+      transform: scale(1.05);
+    }
     @media (max-width: 767px) {
       font-size: 10px;
     }

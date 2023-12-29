@@ -7,7 +7,7 @@
       <base-icon :name="icon"></base-icon>
     </div>
     <div v-else class="avatar__image">
-      <img :src="`${baseURL}/${img}`" alt="" />
+      <img :src="img" alt="" />
     </div>
     <div class="avatar__input">
       <div class="avatar__input-body">
@@ -30,16 +30,10 @@
 </template>
 
 <script>
-import { ADD_FILE } from "@/api/admin.api";
 import BaseIcon from "@/components/base/BaseIcon.vue";
-import { mapGetters } from "vuex";
-
 export default {
   components: {
     BaseIcon,
-  },
-  computed: {
-    ...mapGetters(["baseURL"]),
   },
   props: {
     multiple: {
@@ -48,7 +42,7 @@ export default {
     },
     image: {
       type: String,
-      default: () => null,
+      default: null,
     },
     icon: {
       type: String,
@@ -78,19 +72,10 @@ export default {
     },
   },
   methods: {
-    async changeFile(e) {
+    changeFile(e) {
       if (!e.target.files[0]) return;
-      try {
-        const { data, status } = await ADD_FILE({
-          data: { file: e.target.files[0] },
-        });
-        if (status) {
-          this.img = data;
-          this.$emit("uploadFile", data);
-        }
-      } catch (error) {
-        console.log(error);
-      }
+      this.img = URL.createObjectURL(e.target.files[0]);
+      this.$emit("uploadFile", e.target.files[0]);
     },
     changeMultiFile(e) {
       this.$emit("uploadMultiFile", e.target.files);

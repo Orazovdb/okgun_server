@@ -45,12 +45,12 @@
           ></base-input>
         </base-col>
         <base-col cols="12" class="flex gap-20 flex-x-end">
-          <base-button @clickedButton="$emit('close')" adminButton
-            >Ýatyrmak</base-button
-          >
-          <base-button @clickedButton="save" adminButton
-            >Ýatda saklamak</base-button
-          >
+          <base-button @clickedButton="$emit('close')" adminButton>
+            Ýatyrmak
+          </base-button>
+          <base-button @clickedButton="save" adminButton>
+            Ýatda saklamak
+          </base-button>
         </base-col>
       </base-row>
     </pop-up>
@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import { ADD_PRODUCT } from "@/api/admin.api";
+import { ADD_PRODUCT_NEW } from "@/api/admin.api";
 import PopUp from "@/components/popup/PopUp.vue";
 import { mapGetters } from "vuex";
 
@@ -67,10 +67,6 @@ export default {
     PopUp,
   },
   props: {
-    categoryId: {
-      type: String,
-      default: "",
-    },
     item: {
       type: Object,
       default: () => {},
@@ -87,7 +83,6 @@ export default {
       this.main.description_en = this.item.description_en;
       this.main.weight = this.item.weight;
       this.main.srok = this.item.srok;
-      this.main.category_id = this.item.category_id;
       this.image_path = `${this.baseURL}/uploads/photos/${this.item.image_path}`;
     }
   },
@@ -104,7 +99,6 @@ export default {
         description_en: "",
         weight: "",
         srok: "",
-        category_id: "",
         image_path: "",
         uuid: "",
       },
@@ -119,16 +113,14 @@ export default {
     },
     uploadFile(file) {
       this.main.image_path = file;
-      this.image_path = "";
     },
     async save() {
       if (!this.main.title_tm || !this.main.title_ru || !this.main.title_en) {
         alert("Doldur");
       } else {
         if (this.item?.uuid) this.main.uuid = this.item.uuid;
-        this.main.category_id = this.categoryId;
         try {
-          const { data, status } = await ADD_PRODUCT({ data: this.main });
+          const { data, status } = await ADD_PRODUCT_NEW({ data: this.main });
           if (status) {
             this.$emit("close");
           }
