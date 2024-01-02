@@ -14,7 +14,7 @@ export const GET_SLIDER = () =>
   request({ url: `/admin/slider/get`, method: "GET" });
 
 export const ADD_PARTNER = ({ data }) =>
-  request({ url: `/admin/service/add`, data, method: "post" });
+  request({ url: `/admin/service/add`, data, file: true, method: "post" });
 export const GET_PARTNERS = () =>
   request({ url: `/admin/service/get`, method: "GET" });
 export const DELETE_PARTNER = ({ data }) =>
@@ -63,7 +63,7 @@ export const DELETE_PRODUCT = ({ data }) =>
   request({ url: `/admin/product/delete`, data, method: "post" });
 
 export const ADD_CATALOG = ({ data }) =>
-  request({ url: `/admin/catalog/add`, data, method: "post" });
+  request({ url: `/admin/catalog/add`, data, file: true, method: "post" });
 export const GET_CATALOG = () =>
   request({ url: `/admin/catalog/get`, method: "GET" });
 export const DELETE_CATALOG = ({ data }) =>

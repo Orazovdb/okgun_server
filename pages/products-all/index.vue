@@ -2,7 +2,7 @@
   <div class="products-id">
     <the-loader :preloader="preloader"></the-loader>
     <div class="products-id__container">
-      <ProductObbi :products="products" />
+      <ProductObbi2 :products="products" />
     </div>
   </div>
 </template>

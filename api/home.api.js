@@ -37,8 +37,8 @@ export const GET_PRODUCT_NEW = ({ data }) =>
     method: "GET",
   });
 
-export const GET_VACANCY_ALL = ({ data }) =>
+export const GET_VACANCY_ALL = ({ params }) =>
   request({
-    url: `/client/user/all-job?l=${data.limit}&p=${data.page}`,
+    url: `/client/user/all-job`, params,
     method: "GET",
   });

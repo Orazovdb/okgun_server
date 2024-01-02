@@ -85,9 +85,9 @@ export default {
       page: 1,
       paginationCount: 0,
       vacancy: null,
+      vacancyAll: [],
       observer: null,
       velayats: [],
-      vacancyAll: [],
       selected: null,
       tableHead: [
         { id: 1, count: 0, name: "workTime" },
@@ -102,6 +102,7 @@ export default {
   },
   async mounted() {
     await this.fetchJobsVelayats();
+    await this.fetchVacancyAll();
     if (this.$refs.aos) {
       const options =
         {
@@ -129,10 +130,9 @@ export default {
       try {
         const { data, status } = await GET_JOBS_VELAYATS();
         if (status) {
-          console.log(data);
           this.velayats = data || [];
-          this.selected = this.velayats[1].uuid;
-          this.fetchVacancy(data[1]?.uuid);
+          // this.selected = this.velayats[1].uuid;
+          this.fetchVacancyAll();
         }
       } catch (error) {
         console.log(error);
@@ -160,13 +160,14 @@ export default {
       try {
         const { data, status } = await GET_VACANCY_ALL({
           params: {
-            limit: this.limit,
-            page: this.page,
+            l: this.limit,
+            p: this.page,
           },
         });
         if (status) {
+          console.log(data, "salam");
           this.paginationCount = Math.ceil(data.count / this.limit);
-          this.vacancyAll = data.news;
+          this.vacancy = data.news;
         }
       } catch (error) {
         console.log(error);
