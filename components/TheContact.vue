@@ -71,31 +71,32 @@ export default {
     },
   },
   mounted() {
-    if (this.$refs.aos) {
-      const options =
-        {
-          rootMargin: "100px 0px 0px 0px",
-          threshold: 0.4,
-        } || {};
-      this.observer = new IntersectionObserver(async ([entry]) => {
-        if (entry && entry.isIntersecting) {
-          this.$refs.image.classList.add("aos");
-          const elemAos = document.querySelectorAll(".aos");
-          elemAos.forEach((elem) => {
-            if (
-              !elem.classList.contains("contact__row") &&
-              !elem.classList.contains("menu")
-            ) {
-              elem.classList.remove("aos");
-            }
-          });
-        }
-      }, options);
-      this.observer.observe(this.$refs.aos);
-    }
-  },
-  destroyed() {
-    this.observer.disconnect();
+    //   if (this.$refs.aos) {
+    //     const options =
+    //       {
+    //         rootMargin: "100px 0px 0px 0px",
+    //         threshold: 0.4,
+    //       } || {};
+    //     this.observer = new IntersectionObserver(async ([entry]) => {
+    //       if (entry && entry.isIntersecting) {
+    //         this.$refs.image.classList.add("aos");
+    //         const elemAos = document.querySelectorAll(".aos");
+    //         elemAos.forEach((elem) => {
+    //           if (
+    //             !elem.classList.contains("contact__row") &&
+    //             !elem.classList.contains("menu")
+    //           ) {
+    //             elem.classList.remove("aos");
+    //           }
+    //         });
+    //       }
+    //     }, options);
+    //     this.observer.observe(this.$refs.aos);
+    //   }
+    // },
+    // destroyed() {
+    //   this.observer.disconnect();
+    // },
   },
 };
 </script>
@@ -148,13 +149,13 @@ export default {
       grid-template-columns: 1fr;
       gap: 16px;
     }
-    transform: translateY(80px);
-    opacity: 0;
-    &.aos {
-      opacity: 1;
-      transform: translateY(0px);
-      transition: 0.4s all;
-    }
+    // transform: translateY(80px);
+    // opacity: 0;
+    // &.aos {
+    //   opacity: 1;
+    //   transform: translateY(0px);
+    //   transition: 0.4s all;
+    // }
   }
 }
 </style>

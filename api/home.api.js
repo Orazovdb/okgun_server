@@ -39,6 +39,7 @@ export const GET_PRODUCT_NEW = ({ data }) =>
 
 export const GET_VACANCY_ALL = ({ params }) =>
   request({
-    url: `/client/user/all-job`, params,
+    url: `/client/user/all-job`,
+    params,
     method: "GET",
   });

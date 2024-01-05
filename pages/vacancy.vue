@@ -100,9 +100,13 @@ export default {
       ],
     };
   },
-  async mounted() {
+
+  async fetch() {
     await this.fetchJobsVelayats();
     await this.fetchVacancyAll();
+  },
+
+  async mounted() {
     if (this.$refs.aos) {
       const options =
         {
@@ -131,8 +135,7 @@ export default {
         const { data, status } = await GET_JOBS_VELAYATS();
         if (status) {
           this.velayats = data || [];
-          // this.selected = this.velayats[1].uuid;
-          this.fetchVacancyAll();
+          this.selected = this.velayats[1].uuid;
         }
       } catch (error) {
         console.log(error);

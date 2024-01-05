@@ -108,7 +108,7 @@ export default {
   }
 
   &__image {
-    transform: translateY(-100px);
+    transform: translateY(-40px);
     transition: 0.4s all;
     opacity: 1;
     height: 550px;

@@ -158,7 +158,7 @@ export default {
   &__row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 0px;
     transform: translateY(80px);
     opacity: 0;
     &.aos-animate {
@@ -173,9 +173,9 @@ export default {
   }
 
   &__image {
-    width: 500px;
+    width: 600px;
     height: 600px;
-    transform: translateX(-90px);
+    transform: translateX(-30px);
     img {
       width: 100%;
       height: 100%;
