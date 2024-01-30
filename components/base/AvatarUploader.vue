@@ -3,11 +3,17 @@
     <div v-if="imgPath" class="avatar__image">
       <img :src="imgPath" alt="" />
     </div>
-    <div v-else-if="!img" class="avatar__default">
+    <div v-else-if="!img && !blobImg" class="avatar__default">
       <base-icon :name="icon"></base-icon>
     </div>
+    <div v-else-if="blobImg" class="avatar__image">
+      <img :src="blobImg" alt="" />
+      
+    </div>
     <div v-else class="avatar__image">
+      
       <img :src="`${baseURL}/${img}`" alt="" />
+
     </div>
     <div class="avatar__input">
       <div class="avatar__input-body">
@@ -70,6 +76,7 @@ export default {
   data() {
     return {
       img: null,
+      blobImg: null,
     };
   },
   watch: {
@@ -93,6 +100,7 @@ export default {
       }
     },
     changeMultiFile(e) {
+      this.blobImg = URL.createObjectURL(e.target.files[0]);
       this.$emit("uploadMultiFile", e.target.files);
     },
   },

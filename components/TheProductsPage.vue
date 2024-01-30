@@ -20,7 +20,7 @@
           >
             <p>{{ translateTitle(slide) }}</p>
             <div class="products-swiper-block__image">
-              <img :src="`${baseURL}/uploads/products/${slide.image}`" alt="" />
+              <img :src="`${baseURL}/${slide.image}`" alt="" />
             </div>
           </div>
         </div>

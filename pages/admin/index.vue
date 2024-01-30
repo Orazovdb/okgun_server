@@ -54,7 +54,7 @@ import { mapGetters } from "vuex";
 
 export default {
   layout: "admin",
-  middleware: ["auth-admin"],
+  middleware: "auth-admin",
   components: {
     PopUpBanner,
   },
@@ -98,9 +98,9 @@ export default {
     update(item) {
       this.isPopUp = true;
       this.slide = item;
-      this.image_path_tm = `${this.baseURL}/uploads/category/${item.photo_tm}`;
-      this.image_path_ru = `${this.baseURL}/uploads/category/${item.photo_ru}`;
-      this.image_path_en = `${this.baseURL}/uploads/category/${item.photo_en}`;
+      // this.image_path_tm = `${this.baseURL}/uploads/slider/${item.photo_tm}`;
+      // this.image_path_ru = `${this.baseURL}/uploads/slider/${item.photo_ru}`;
+      // this.image_path_en = `${this.baseURL}/uploads/slider/${item.photo_en}`;
     },
     openPopUp() {
       this.isPopUp = true;

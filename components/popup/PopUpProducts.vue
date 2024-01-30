@@ -88,7 +88,7 @@ export default {
       this.main.weight = this.item.weight;
       this.main.srok = this.item.srok;
       this.main.category_id = this.item.category_id;
-      this.image_path = `${this.baseURL}/uploads/photos/${this.item.image_path}`;
+      this.image_path = `${this.baseURL}/${this.item.image_path}`;
     }
   },
   data() {
@@ -105,7 +105,7 @@ export default {
         weight: "",
         srok: "",
         category_id: "",
-        image_path: "",
+        photo: "",
         uuid: "",
       },
     };
@@ -118,7 +118,7 @@ export default {
       this.activeLang = key;
     },
     uploadFile(file) {
-      this.main.image_path = file;
+      this.main.photo = file;
       this.image_path = "";
     },
     async save() {

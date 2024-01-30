@@ -11,8 +11,8 @@
             v-if="activeLang === 'tm'"
             :imgPath="image_path_tm"
             @uploadFile="uploadTmFile"
-            :image="photo_tm"
             :activeLang="activeLang"
+            :image="photo_tm"
           />
           <slider-uploader
             v-if="activeLang === 'ru'"
@@ -93,17 +93,18 @@ export default {
     },
     uploadTmFile(file) {
       this.main.photo_tm = file;
-      this.photo_tm = file;
+      this.photo_tm = URL.createObjectURL(file);
       this.image_path_tm = "";
     },
     uploadEnFile(file) {
       this.main.photo_en = file;
-      this.photo_en = file;
+      this.photo_en = URL.createObjectURL(file);
       this.image_path_en = "";
     },
     uploadRuFile(file) {
       this.main.photo_ru = file;
-      this.photo_ru = file;
+      this.photo_ru = URL.createObjectURL(file);
+      
       this.image_path_ru = "";
     },
     async save() {

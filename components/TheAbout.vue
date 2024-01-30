@@ -108,7 +108,7 @@ export default {
   }
 
   &__image {
-    transform: translateY(-40px);
+    transform: translate(-200px, -80px);
     transition: 0.4s all;
     opacity: 1;
     height: 550px;
@@ -133,11 +133,11 @@ export default {
   }
 
   &__content {
-    transform: translateY(80px);
+    transform: translateX(70px);
     opacity: 0;
     &.aos {
       opacity: 1;
-      transform: translateY(0px);
+      transform: translateX(-0px);
       transition: 0.4s all;
     }
     h1 {

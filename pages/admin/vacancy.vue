@@ -58,7 +58,7 @@ import PopUpVacancy from "@/components/popup/PopUpVacancy.vue";
 export default {
   components: { PopUpVacancy },
   layout: "admin",
-  middleware: ["auth-admin"],
+  middleware: "auth-admin",
   data() {
     return {
       isPopUp: false,
@@ -79,7 +79,7 @@ export default {
           params: { limit: this.limit, page: this.page },
         });
         if (status) {
-          this.data = data.news || [];
+          this.data = data.jobs || [];
           this.paginationCount = Math.ceil(data.count / this.limit);
         }
       } catch (error) {

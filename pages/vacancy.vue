@@ -135,7 +135,7 @@ export default {
         const { data, status } = await GET_JOBS_VELAYATS();
         if (status) {
           this.velayats = data || [];
-          this.selected = this.velayats[1].uuid;
+          // this.selected = this.velayats[1].uuid;
         }
       } catch (error) {
         console.log(error);
@@ -169,6 +169,7 @@ export default {
         });
         if (status) {
           console.log(data, "salam");
+          this.vacancy = null;
           this.paginationCount = Math.ceil(data.count / this.limit);
           this.vacancy = data.news;
         }

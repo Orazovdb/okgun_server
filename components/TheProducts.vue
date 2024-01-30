@@ -11,6 +11,15 @@
       <div class="products-swiper-block swiper">
         <div class="products-swiper-block__wrapper swiper-wrapper" ref="image">
           <div
+            class="products-swiper-block__slide"
+            @click="$router.push(localeLocation('/products-all'))"
+          >
+            <p>Täze önümlerimiz</p>
+            <div class="products-swiper-block__image">
+              <img src="@/assets/img/okgun.png" alt="" />
+            </div>
+          </div>
+          <div
             class="products-swiper-block__slide swiper-slide"
             v-for="slide in categories"
             :key="slide.uuid"
@@ -20,15 +29,9 @@
           >
             <p>{{ translateTitle(slide) }}</p>
             <div class="products-swiper-block__image">
-              <img :src="`${baseURL}/uploads/products/${slide.image}`" alt="" />
+              <img :src="`${baseURL}/${slide.image}`" alt="" />
             </div>
           </div>
-        </div>
-        <div
-          class="products__all-item"
-          @click="$router.push(localeLocation('/products-all'))"
-        >
-          <h1>Täze önümlerimiz</h1>
         </div>
       </div>
     </div>

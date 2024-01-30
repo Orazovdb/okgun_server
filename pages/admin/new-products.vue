@@ -62,7 +62,7 @@ export default {
     PopUpProductsNew,
   },
   layout: "admin",
-  middleware: ["auth-admin"],
+  middleware: "auth-admin",
   data() {
     return {
       isPopUp: false,
@@ -71,7 +71,7 @@ export default {
       productItem: null,
       buttons: [],
       products: [],
-      limit: 10,
+      limit: 5,
       page: 1,
       paginationCount: 0,
     };
@@ -99,7 +99,9 @@ export default {
 
     async deleteProductItem(uuid) {
       try {
-        const { data, status } = await DELETE_PRODUCT_NEW({ data: { uuid: uuid } });
+        const { data, status } = await DELETE_PRODUCT_NEW({
+          data: { uuid: uuid },
+        });
         if (status) {
           this.fetchProductsNew();
         }
@@ -118,7 +120,7 @@ export default {
     },
     async closeProductPopUp() {
       this.isPopUp = false;
-      this.fetchProductsNew;
+      this.fetchProductsNew();
       if (this.productItem) {
         Object.keys(this.productItem).forEach(
           (key) => (this.productItem[key] = null)

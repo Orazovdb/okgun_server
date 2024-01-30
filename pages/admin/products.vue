@@ -40,7 +40,10 @@
               <td>{{ index + 1 }}</td>
               <td class="img">
                 <div class="img">
-                  <img :src="`${baseURL}/${item.image_path}`" alt="" />
+                  <img
+                    :src="`${baseURL}/${item.image_path}`"
+                    alt=""
+                  />
                 </div>
               </td>
               <td>{{ item.title_tm }}</td>
@@ -97,7 +100,7 @@ export default {
     PopUpCategory,
   },
   layout: "admin",
-  middleware: ["auth-admin"],
+  middleware: "auth-admin",
   data() {
     return {
       isPopUp: false,

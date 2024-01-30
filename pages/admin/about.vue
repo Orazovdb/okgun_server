@@ -25,60 +25,65 @@
       </tbody>
     </base-table>
 
-    <pop-up-about v-if="isPopUp" @close="isPopUp = false" @save="save" :item="aboutUs"></pop-up-about>
+    <pop-up-about
+      v-if="isPopUp"
+      @close="isPopUp = false"
+      @save="save"
+      :item="aboutUs"
+    ></pop-up-about>
   </div>
 </template>
 
 <script>
-  import PopUpAbout from '@/components/popup/PopUpAbout.vue'
-  import { GET_ABOUT } from '@/api/admin.api'
+import { GET_ABOUT } from "@/api/admin.api";
+import PopUpAbout from "@/components/popup/PopUpAbout.vue";
 
-  export default {
-    components: { PopUpAbout },
-    middleware: ['auth-admin'],
-    data() {
-      return {
-        isPopUp: false,
-        data: [],
-        aboutUs: null
-      }
-    },
-    async mounted() {
-      await this.fetch()
-    },
-    methods: {
-      async fetch() {
-        try {
-          const { data, status } = await GET_ABOUT()
-          if (status) {
-            this.data = data || []
-          }
-        } catch (error) {
-          console.log(error)
+export default {
+  components: { PopUpAbout },
+  middleware: "auth-admin",
+  data() {
+    return {
+      isPopUp: false,
+      data: [],
+      aboutUs: null,
+    };
+  },
+  async mounted() {
+    await this.fetch();
+  },
+  methods: {
+    async fetch() {
+      try {
+        const { data, status } = await GET_ABOUT();
+        if (status) {
+          this.data = data || [];
         }
-      },
-      update(item) {
-        this.isPopUp = true
-        this.aboutUs = item
-      },
-      closePopUp() {
-        this.isPopUp = false
-        Object.keys(this.aboutUs).forEach((key) => (this.aboutUs[key] = null))
-      },
-      openPopUp() {
-        this.isPopUp = true
-      },
-      async save() {
-        await this.fetch()
-        this.isPopUp = false
+      } catch (error) {
+        console.log(error);
       }
     },
-    layout: 'admin'
-  }
+    update(item) {
+      this.isPopUp = true;
+      this.aboutUs = item;
+    },
+    closePopUp() {
+      this.isPopUp = false;
+      Object.keys(this.aboutUs).forEach((key) => (this.aboutUs[key] = null));
+    },
+    openPopUp() {
+      this.isPopUp = true;
+    },
+    async save() {
+      await this.fetch();
+      this.isPopUp = false;
+    },
+  },
+  layout: "admin",
+};
 </script>
 
 <style lang="scss" scoped>
-  .admin-banner {
-    height: 100%;
-  }
+.admin-banner {
+  height: 100%;
+}
 </style>

@@ -61,10 +61,10 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@/assets/css/style.css', '@/assets/css/style.scss', '@/assets/css/grid.scss'],
 
-  loading: {
-    color: 'red',
-    height: '2px'
-  },
+  // loading: {
+  //   color: 'red',
+  //   height: '2px'
+  // },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [{ src: '@/plugins/vue-awesome-swiper', mode: 'client' }],

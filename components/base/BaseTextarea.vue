@@ -75,7 +75,7 @@ export default {
     }
     &::placeholder {
       border-radius: 16px;
-      color: var(--text);
+      color: var(--border);
       font-weight: 400;
     }
   }

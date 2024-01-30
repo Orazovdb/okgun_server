@@ -43,7 +43,7 @@ export const GET_ABOUT = () =>
 export const ADD_CATEGORY = ({ data }) =>
   request({
     url: `/admin/product/add-category`,
-
+    file: true,
     data,
     method: "post",
   });
@@ -53,7 +53,7 @@ export const DELETE_CATEGORY = ({ data }) =>
   request({ url: `/admin/product/delete-category`, data, method: "post" });
 
 export const ADD_PRODUCT = ({ data }) =>
-  request({ url: `/admin/product/add`, data, method: "post" });
+  request({ url: `/admin/product/add`, data, file: true, method: "post" });
 export const GET_PRODUCT = ({ data }) =>
   request({
     url: `/admin/product/get-by-id?l=${data.limit}&p=${data.page}&id=${data.uuid}`,

@@ -11,7 +11,7 @@
         <div class="product-id__image">
           <img
             loading="lazy"
-            :data-src="`${baseURL}/uploads/products/${product.image_path}`"
+            :data-src="`${baseURL}/${product.image_path}`"
           />
         </div>
         <h4>{{ translateTitle(product) }}</h4>

@@ -72,6 +72,9 @@ export default {
       default: () => {},
     },
   },
+  computed: {
+    ...mapGetters(["baseURL"]),
+  },
   mounted() {
     this.image_path = "";
     if (this.item?.uuid) {
@@ -83,7 +86,7 @@ export default {
       this.main.description_en = this.item.description_en;
       this.main.weight = this.item.weight;
       this.main.srok = this.item.srok;
-      this.image_path = `${this.baseURL}/uploads/photos/${this.item.image_path}`;
+      this.image_path = `${this.baseURL}/${this.item.image_path}`;
     }
   },
   data() {
@@ -104,14 +107,12 @@ export default {
       },
     };
   },
-  computed: {
-    ...mapGetters(["baseURL"]),
-  },
   methods: {
     toggleLanguage(key) {
       this.activeLang = key;
     },
     uploadFile(file) {
+      this.image_path = ''
       this.main.image_path = file;
     },
     async save() {

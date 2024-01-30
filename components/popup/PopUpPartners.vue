@@ -4,10 +4,11 @@
       <base-row>
         <base-col rows="12" cols="12">
           <!-- <avatar-uploader :imgPath="image_path" @uploadFile="uploadFile"></avatar-uploader> -->
-          <slider-uploader
+          <avatar-uploader
             :imgPath="image_path"
-            @uploadFile="uploadFile"
-          />
+            @uploadMultiFile="uploadFile"
+            multiple
+          ></avatar-uploader>
         </base-col>
 
         <!-- <base-col cols="12">
@@ -15,9 +16,9 @@
         </base-col> -->
 
         <base-col cols="12" class="flex gap-20 flex-x-end">
-          <base-button @clickedButton="$emit('close')" adminButton
-            >Ýatyrmak</base-button
-          >
+          <base-button @clickedButton="$emit('close')" adminButton>
+            Ýatyrmak
+          </base-button>
           <base-button @clickedButton="save" adminButton
             >Ýatda saklamak</base-button
           >
@@ -45,7 +46,7 @@ export default {
     return {
       image_path: "",
       main: {
-        photo: null,
+        photo: "",
         // link: ''
       },
     };
@@ -54,7 +55,7 @@ export default {
     ...mapGetters(["baseURL"]),
   },
   mounted() {
-    this.image_path = "";
+    // this.image_path = "";
     if (this.item?.uuid) {
       // this.main.link = this.item.link
       this.image_path = `${this.baseURL}/uploads/service/${this.item.image_path}`;
@@ -62,8 +63,9 @@ export default {
   },
   methods: {
     uploadFile(file) {
-      this.main.photo = file;
+      this.main.photo = file[0];
       this.image_path = "";
+      console.log(this.main.photo);
     },
     async save() {
       try {

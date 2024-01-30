@@ -3,11 +3,11 @@
     <div v-if="imgPath" class="avatar__image">
       <img :src="imgPath" alt="" />
     </div>
-    <div v-else-if="!img" class="avatar__default">
+    <div v-else-if="!image" class="avatar__default">
       <base-icon :name="icon"></base-icon>
     </div>
     <div v-else class="avatar__image">
-      <img :src="img" alt="" />
+      <img :src="image" alt="" />
     </div>
     <div class="avatar__input">
       <div class="avatar__input-body">
@@ -66,11 +66,11 @@ export default {
       img: null,
     };
   },
-  watch: {
-    activeLang: function (val) {
-      this.img = this.image ? this.image : null;
-    },
-  },
+  // watch: {
+  //   activeLang: function (val) {
+  //     this.img = this.image ? this.image : null;
+  //   },
+  // },
   methods: {
     changeFile(e) {
       if (!e.target.files[0]) return;

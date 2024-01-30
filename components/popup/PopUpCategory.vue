@@ -56,7 +56,7 @@ export default {
         title_tm: "",
         title_ru: "",
         title_en: "",
-        photo: "",
+        image: "",
       },
     };
   },
@@ -68,7 +68,7 @@ export default {
       this.main.title_tm = this.item.title_tm;
       this.main.title_ru = this.item.title_ru;
       this.main.title_en = this.item.title_en;
-      this.image_path = `${this.baseURL}/uploads/products/${this.item.image_path}`;
+      this.image_path = `${this.baseURL}/${this.item.image_path}`;
     }
   },
   methods: {
@@ -76,7 +76,7 @@ export default {
       this.activeLang = key;
     },
     uploadFile(file) {
-      this.main.photo = file;
+      this.main.image = file;
       this.image_path = "";
     },
     async save() {

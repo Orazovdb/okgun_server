@@ -77,7 +77,7 @@ export default {
   background-color: #f7f7f7;
   margin-bottom: 40px;
   @media (max-width: 992px) {
-    height: auto;
+    height: 50vh;
   }
   @media (max-width: 767px) {
     margin-top: 30px;
@@ -106,8 +106,8 @@ export default {
     position: relative;
     height: 100%;
     @media (max-width: 992px) {
-      display: flex;
-      flex-direction: column;
+      // display: flex;
+      // flex-direction: column;
     }
   }
 
@@ -131,10 +131,10 @@ export default {
       position: relative;
       order: 2;
       width: calc(100% - 20%);
-      height: 200px;
-      transform: translate(0);
+      height: 100%;
+      // transform: translate(0);
       img {
-        object-fit: contain;
+        // object-fit: contain;
       }
       // &::before {
       //   content: '';
@@ -176,12 +176,12 @@ export default {
       }
     }
     @media (max-width: 767px) {
-      width: 30px;
-      height: 30px;
+      width: 50px;
+      height: 50px;
       &:deep() {
         svg {
-          width: 20px;
-          height: 20px;
+          width: 30px;
+          height: 30px;
         }
       }
     }
@@ -209,12 +209,12 @@ export default {
       }
     }
     @media (max-width: 767px) {
-      width: 30px;
-      height: 30px;
+      width: 50px;
+      height: 50px;
       &:deep() {
         svg {
-          width: 20px;
-          height: 20px;
+          width: 30px;
+          height: 30px;
         }
       }
     }
@@ -316,10 +316,10 @@ export default {
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    width: 30%;
+    width: 50%;
     z-index: 10;
     @media (max-width: 767px) {
-      bottom: 0px;
+      bottom: 20px;
     }
   }
 
@@ -333,7 +333,7 @@ export default {
       .swiper-pagination-bullet {
         cursor: pointer;
         width: 100%;
-        height: 3px;
+        height: 5px;
         background-color: #d9d9d9;
       }
       .swiper-pagination-bullet-active {

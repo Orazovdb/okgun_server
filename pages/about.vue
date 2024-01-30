@@ -159,13 +159,6 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0px;
-    transform: translateY(80px);
-    opacity: 0;
-    &.aos-animate {
-      opacity: 1;
-      transform: translateY(0px);
-      transition: 0.4s all;
-    }
     @media (max-width: 767px) {
       grid-template-columns: 1fr;
       gap: 20px;
@@ -175,7 +168,15 @@ export default {
   &__image {
     width: 600px;
     height: 600px;
-    transform: translateX(-30px);
+    transform: translateX(-80px);
+    transition: 0.4s all;
+    &.aos {
+      transform: translateX(-30px);
+      transition: 0.4s all;
+      @media (max-width: 767px) {
+        transform: translateY(0);
+      }
+    }
     img {
       width: 100%;
       height: 100%;
@@ -190,6 +191,11 @@ export default {
   }
 
   &__content {
+    transform: translateX(70px);
+    &.aos {
+      transform: translateX(-0px);
+      transition: 0.4s all;
+    }
     h2 {
       color: var(--text);
       font-size: 60px;
