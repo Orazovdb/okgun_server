@@ -109,13 +109,13 @@ export default {
 
   &__image {
     transform: translate(-200px, -80px);
-    transition: 0.4s all;
+    transition: 0.8s all;
     opacity: 1;
     height: 550px;
     &.aos {
       opacity: 1;
       transform: translate(-110px, -80px);
-      transition: 0.4s all;
+      transition: 0.8s all;
       @media (max-width: 767px) {
         transform: translateY(0);
       }
@@ -142,7 +142,7 @@ export default {
     &.aos {
       opacity: 1;
       transform: translateX(-0px);
-      transition: 0.4s all;
+      transition: 0.8s all;
     }
     h1 {
       color: var(--text);
