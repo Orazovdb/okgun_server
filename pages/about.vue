@@ -169,10 +169,10 @@ export default {
     width: 600px;
     height: 600px;
     transform: translateX(-80px);
-    transition: 0.4s all;
+    transition: 0.8s all;
     &.aos {
       transform: translateX(-30px);
-      transition: 0.4s all;
+      transition: 0.8s all;
       @media (max-width: 767px) {
         transform: translateX(0);
       }
@@ -195,7 +195,7 @@ export default {
     transform: translateX(70px);
     &.aos {
       transform: translateX(-0px);
-      transition: 0.4s all;
+      transition: 0.8s all;
     }
     h2 {
       color: var(--text);
