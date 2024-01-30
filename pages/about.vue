@@ -174,7 +174,7 @@ export default {
       transform: translateX(-30px);
       transition: 0.4s all;
       @media (max-width: 767px) {
-        transform: translateY(0);
+        transform: translateX(0);
       }
     }
     img {
@@ -187,6 +187,7 @@ export default {
       height: 350px;
       margin: 0 auto;
       order: 2;
+      transform: translateX(0);
     }
   }
 

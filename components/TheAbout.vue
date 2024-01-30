@@ -129,6 +129,10 @@ export default {
     @media (max-width: 767px) {
       order: 2;
       transform: translateY(0);
+      height: 370px;
+      img {
+        object-fit: fill;
+      }
     }
   }
 
