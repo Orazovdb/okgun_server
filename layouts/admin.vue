@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  middleware: ["auth-admin"],
+  middleware: "auth-admin",
 };
 </script>
 
