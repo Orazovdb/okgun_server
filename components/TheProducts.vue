@@ -318,7 +318,7 @@ export default {
       background: #fff;
       padding: 10px 30px;
       color: var(--white);
-      font-size: 20px;
+      font-size: 17px;
       text-align: center;
       font-weight: 800;
       line-height: 120%;
