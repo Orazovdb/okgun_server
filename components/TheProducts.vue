@@ -282,7 +282,7 @@ export default {
   &__wrapper {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 30px;
+    gap: 20px;
     transform: translateY(80px);
     opacity: 0;
     &.aos {
@@ -333,7 +333,7 @@ export default {
 
   &__image {
     width: 100%;
-    height: 348px;
+    height: 300px;
     margin: auto auto;
     position: relative;
     display: flex;
