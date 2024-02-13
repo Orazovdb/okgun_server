@@ -27,7 +27,7 @@ export const GET_JOBS = ({ params }) =>
     url: `/admin/jobs/get?l=${params.limit}&p=${params.page}`,
     method: "GET",
   });
-export const DELETE_JOB = ({ data }) =>
+export const DELETE_JOB = ({ data }) =>+
   request({ url: `/admin/jobs/delete`, data, method: "post" });
 export const GET_JOBS_VELAYATS = () =>
   request({

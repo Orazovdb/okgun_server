@@ -34,4 +34,5 @@ export default {
   srok: "Expiry date",
   keywords:
     "Turkmenistan,turkmenistan,ashgabat,ahal,balkan,mary,lebap,dashoguz,awaza,türkmenbaşy,okgun,Okgun,suyji,koke,fafli,bulka,sokolad,keks,süýji,köke,şokolad",
+    newProducts: "New products"
 };

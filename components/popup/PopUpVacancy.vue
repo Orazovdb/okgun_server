@@ -84,8 +84,8 @@
 </template>
 
 <script>
-import { ADD_JOBS, GET_JOBS_VELAYATS } from "@/api/admin.api"
-import PopUp from "@/components/popup/PopUp.vue"
+import { ADD_JOBS, GET_JOBS_VELAYATS } from "@/api/admin.api";
+import PopUp from "@/components/popup/PopUp.vue";
 
 export default {
   components: {
@@ -172,7 +172,7 @@ export default {
         !this.main.work_name_en ||
         !this.main.gender_tm ||
         !this.main.gender_ru ||
-        !this.main.gender_en 
+        !this.main.gender_en
       ) {
         alert("Dolduryn");
       } else {

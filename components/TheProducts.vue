@@ -14,7 +14,7 @@
             class="products-swiper-block__slide"
             @click="$router.push(localeLocation('/products-all'))"
           >
-            <p>Täze önümlerimiz</p>
+            <p>{{ $t('newProducts') }}</p>
             <div class="products-swiper-block__image">
               <img src="@/assets/img/okgun.png" alt="" />
             </div>
