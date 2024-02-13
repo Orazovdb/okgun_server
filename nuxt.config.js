@@ -54,7 +54,7 @@ export default {
   },
 
   server: {
-    port: 3030,
+    port: 3011,
     host: '0.0.0.0'
   },
 
