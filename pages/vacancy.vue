@@ -101,12 +101,9 @@ export default {
     };
   },
 
-  async fetch() {
+  async mounted() {
     await this.fetchJobsVelayats();
     await this.fetchVacancyAll();
-  },
-
-  async mounted() {
     if (this.$refs.aos) {
       const options =
         {

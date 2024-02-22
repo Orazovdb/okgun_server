@@ -14,7 +14,7 @@
             class="products-swiper-block__slide"
             @click="$router.push(localeLocation('/products-all'))"
           >
-            <p>{{ $t('newProducts') }}</p>
+            <p>{{ $t("newProducts") }}</p>
             <div class="products-swiper-block__image">
               <img src="@/assets/img/okgun.png" alt="" />
             </div>
@@ -71,7 +71,7 @@ export default {
       //     id: 2,
       //     download: "/Okgun.pdf",
       //     img: "/okgun.png",
-      //   },
+      //   }GET_VACANCY,
       // ],
     };
   },
@@ -208,7 +208,7 @@ export default {
     }
   }
   @media (max-width: 767px) {
-    margin-bottom: 15px;
+    margin-bottom: 0;
     h1 {
       font-size: 30px;
     }
@@ -292,13 +292,12 @@ export default {
     }
     @media (max-width: 767px) {
       grid-template-columns: repeat(2, 1fr);
-      @media (max-width: 767px) {
-        transform: translateY(40px);
-        opacity: 1;
-      }
+      transform: translateY(40px);
+      opacity: 1;
     }
     @media (max-width: 479px) {
       grid-template-columns: repeat(1, 1fr);
+      margin: 0 30px;
     }
   }
 
@@ -348,7 +347,7 @@ export default {
       object-position: center;
     }
     @media (max-width: 767px) {
-      height: 180px;
+      height: 230px;
     }
   }
 
