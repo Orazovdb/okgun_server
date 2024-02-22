@@ -71,7 +71,7 @@ export default {
           id: "6",
           to: "/new-products",
           icon: "adminProduct",
-          name: "New products",
+          name: "Täze önümler",
         },
       ],
     };
