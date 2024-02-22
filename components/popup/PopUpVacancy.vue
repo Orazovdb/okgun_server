@@ -57,7 +57,7 @@
 
         <base-col cols="6">
           <div class="dropdown">
-            <label for="velayats">Choose a car:</label>
+            <label for="velayats">Welaýaty saýlaň:</label>
             <select v-model="selected" name="velayats" id="velayats">
               <option
                 v-for="velayat in velayats"
