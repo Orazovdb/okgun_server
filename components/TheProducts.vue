@@ -11,15 +11,6 @@
       <div class="products-swiper-block swiper">
         <div class="products-swiper-block__wrapper swiper-wrapper" ref="image">
           <div
-            class="products-swiper-block__slide"
-            @click="$router.push(localeLocation('/products-all'))"
-          >
-            <p>{{ $t("newProducts") }}</p>
-            <div class="products-swiper-block__image">
-              <img src="@/assets/img/okgun.png" alt="" />
-            </div>
-          </div>
-          <div
             class="products-swiper-block__slide swiper-slide"
             v-for="slide in categories"
             :key="slide.uuid"
@@ -274,14 +265,14 @@ export default {
     &__button {
       padding: 2px 12px;
       font-size: 12px;
-      white-space: nowrap;
+      white-space: nowrap
     }
   }
 }
 .products-swiper-block {
   &__wrapper {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     transform: translateY(80px);
     opacity: 0;
@@ -347,7 +338,7 @@ export default {
       object-position: center;
     }
     @media (max-width: 767px) {
-      height: 230px;
+      height: 280px;
     }
   }
 

@@ -1,5 +1,5 @@
 export default {
-  theme: 'theme',
+  theme: 'Theme',
   home: "Home",
   products: "Products",
   about: "About us",
@@ -8,7 +8,7 @@ export default {
   name: "Name, surname",
   phoneNumber: "Phone number",
   email: "E-mail",
-  text: "Teüt",
+  text: "Text",
   send: "Send",
   partners: "Our brends",
   readMore: "More",

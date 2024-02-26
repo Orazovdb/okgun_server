@@ -73,7 +73,7 @@ export default {
 
 <style lang="scss" scoped>
 .swiper-block {
-  height: calc(100vh - 25vh);
+  height: calc(100vh - 20vh);
   background-color: #f7f7f7;
   margin-bottom: 40px;
   @media (max-width: 992px) {
@@ -135,6 +135,7 @@ export default {
       // transform: translate(0);
       img {
         // object-fit: contain;
+        // object-position: right;
       }
       // &::before {
       //   content: '';
@@ -151,7 +152,7 @@ export default {
     }
     @media (max-width: 767px) {
       width: 100%;
-      padding: 0 20px;
+      padding: 0 ;
     }
   }
 

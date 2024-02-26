@@ -1,6 +1,5 @@
 <template>
   <div class="product-id">
-    <div class="product-id__title"></div>
     <div class="product-id__row">
       <div
         class="product-id__item"
@@ -8,21 +7,25 @@
         :key="product.uuid"
         :product="product"
       >
+        <div class="product-id__circle">
+          <div class="product-id__info">
+            <base-icon icon="info"></base-icon>
+          </div>
+        </div>
         <div class="product-id__image">
-          <img
-            loading="lazy"
-            :data-src="`${baseURL}/${product.image_path}`"
-          />
+          <img loading="lazy" :data-src="`${baseURL}/${product.image_path}`" />
         </div>
-        <h4>{{ translateTitle(product) }}</h4>
-        <h5>{{ translateDescription(product) }}</h5>
-        <div class="product-id__item-about">
-          <span class="bold">{{ $t("weight") }}:</span>
-          <span>{{ product.weight }}</span>
-        </div>
-        <div class="product-id__item-about">
-          <span class="bold">{{ $t("srok") }}:</span>
-          <span>{{ product.srok }}</span>
+        <div class="product-id__content">
+          <h4>{{ translateTitle(product) }}</h4>
+          <h5>{{ translateDescription(product) }}</h5>
+          <div class="product-id__item-about">
+            <span class="bold">{{ $t("weight") }}:</span>
+            <span>{{ product.weight }}</span>
+          </div>
+          <div class="product-id__item-about">
+            <span class="bold">{{ $t("srok") }}:</span>
+            <span>{{ product.srok }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -99,9 +102,24 @@ export default {
   &__item {
     background: #f7f7f7;
     border-radius: 16px;
-    padding: 16px;
+    padding: 0;
     display: flex;
     flex-direction: column;
+    border: 1px solid;
+    border-radius: 12px;
+    transition: 0.3 all ease;
+    overflow: hidden;
+    z-index: 2;
+    cursor: zoom-in;
+    position: relative;
+    &::before {
+      content: "";
+    }
+    &:hover {
+      box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.5);
+      transition: 2s all;
+      // transition: 2s ease-in-out;
+    }
     h4 {
       color: var(--text);
       font-size: 19px;
@@ -129,26 +147,72 @@ export default {
     }
   }
 
+  &__info {
+    position: absolute;
+    right: 55px;
+    top: 55px;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 200px 200px;
+    cursor: auto !important;
+    span {
+      cursor: auto;
+    }
+    &:deep(svg) {
+      width: 30px;
+      height: 30px;
+      color: #fff;
+    }
+  }
+
+  &__circle {
+    position: absolute;
+    right: -50px;
+    top: -50px;
+    background-color: var(--primary);
+    width: 100px;
+    height: 100px;
+    z-index: 40;
+    border-radius: 50%;
+    cursor: auto;
+    transition: all 0.7s;
+    &:hover {
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 0 0 12px 12px;
+      .product-id__info {
+        display: none;
+      }
+    }
+  }
+
   &__image {
-    width: 90%;
-    height: 200px;
+    width: 100%;
+    height: 240px;
     margin: 0 auto;
-    margin-bottom: 10px;
     background-size: 180px;
     position: relative;
     z-index: 30;
-
     img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       position: absolute;
       z-index: 3;
+      border-radius: 12px 12px 0 0;
     }
     @media (max-width: 767px) {
       margin-bottom: 20px;
       width: 100%;
     }
+  }
+
+  &__content {
+    padding: 10px 8px 8px;
   }
 
   &__item-about {

@@ -12,8 +12,8 @@
         <base-input
           :label="$t('text')"
           placeholder="..."
-          :value="send.name"
-          @updateValue="(val) => (send.name = val)"
+          :value="send.text"
+          @updateValue="(val) => (send.text = val)"
         />
         <base-textarea
           :label="$t('theme')"

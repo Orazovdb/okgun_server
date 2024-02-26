@@ -97,7 +97,7 @@ export default {
   &__item {
     background: #f7f7f7;
     border-radius: 16px;
-    padding: 16px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     h4 {
@@ -116,7 +116,7 @@ export default {
       flex: 1 1 auto;
     }
     @media (max-width: 767px) {
-      padding: 20px;
+      padding: 4px;
       h4 {
         font-size: 20px;
       }
@@ -129,7 +129,7 @@ export default {
 
   &__image {
     width: 90%;
-    height: 200px;
+    height: 260px;
     margin: 0 auto;
     margin-bottom: 10px;
     background-size: 180px;
@@ -139,7 +139,7 @@ export default {
     img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       position: absolute;
       z-index: 3;
     }
