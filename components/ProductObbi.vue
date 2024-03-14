@@ -2,30 +2,50 @@
   <div class="product-id">
     <div class="product-id__row">
       <div
-        class="product-id__item"
+        :class="[`product-id__item`, { active: isImage }]"
         v-for="product in products"
         :key="product.uuid"
         :product="product"
       >
+        <div class="popup-product" @click="isImage = false">
+          <div class="popup-product__image" @click.prevent.stop>
+            <img
+              loading="lazy"
+              :data-src="`${baseURL}/${product.image_path}`"
+            />
+          </div>
+        </div>
         <div class="product-id__circle">
           <div class="product-id__info">
             <base-icon icon="info"></base-icon>
           </div>
+          <div class="product-id__content-abs">
+            <h4>{{ translateTitle(product) }}</h4>
+            <h5>{{ translateDescription(product) }}</h5>
+            <div class="product-id__content-abs-item-about">
+              <span class="bold">{{ $t("weight") }}:</span>
+              <span>{{ product.weight }}</span>
+            </div>
+            <div class="product-id__content-abs-item-about">
+              <span class="bold">{{ $t("srok") }}:</span>
+              <span>{{ product.srok }}</span>
+            </div>
+          </div>
         </div>
-        <div class="product-id__image">
+        <div class="product-id__image" @click="isImage = !isImage">
           <img loading="lazy" :data-src="`${baseURL}/${product.image_path}`" />
         </div>
         <div class="product-id__content">
           <h4>{{ translateTitle(product) }}</h4>
           <h5>{{ translateDescription(product) }}</h5>
-          <div class="product-id__item-about">
+          <!-- <div class="product-id__item-about">
             <span class="bold">{{ $t("weight") }}:</span>
             <span>{{ product.weight }}</span>
           </div>
           <div class="product-id__item-about">
             <span class="bold">{{ $t("srok") }}:</span>
             <span>{{ product.srok }}</span>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -38,6 +58,11 @@ import translate from "@/mixins/translate";
 
 import { mapGetters } from "vuex";
 export default {
+  data() {
+    return {
+      isImage: false,
+    };
+  },
   mixins: [translate, observer],
   props: {
     products: {
@@ -110,8 +135,8 @@ export default {
     transition: 0.3 all ease;
     overflow: hidden;
     z-index: 2;
-    cursor: zoom-in;
     position: relative;
+    font-family: Arial, Helvetica, sans-serif;
     &::before {
       content: "";
     }
@@ -122,21 +147,26 @@ export default {
     }
     h4 {
       color: var(--text);
-      font-size: 19px;
+      font-size: 22px;
       font-weight: 900;
       line-height: 111%;
       margin-bottom: 4px;
     }
     h5 {
       color: var(--text);
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 400;
       line-height: 120%;
       margin-bottom: 10px;
       flex: 1 1 auto;
     }
+    &.active {
+      .popup-product {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
     @media (max-width: 767px) {
-      padding: 20px;
       h4 {
         font-size: 20px;
       }
@@ -167,6 +197,39 @@ export default {
     }
   }
 
+  &__content-abs {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(-200%);
+    transition: opacity 0.2s, transform 1s;
+    display: flex;
+    flex-direction: column;
+    h4 {
+      color: #fff;
+      font-weight: 600;
+      font-size: 24px;
+    }
+    h5 {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+
+  &__content-abs-item-about {
+    padding-bottom: 4px;
+    border-bottom: 1px solid #fff;
+    width: 90%;
+    margin-bottom: 10px;
+    span {
+      color: #fff;
+      font-size: 14px;
+    }
+  }
+
   &__circle {
     position: absolute;
     right: -50px;
@@ -177,7 +240,7 @@ export default {
     z-index: 40;
     border-radius: 50%;
     cursor: auto;
-    transition: all 0.7s;
+    transition: all ease-in-out 0.5s;
     &:hover {
       right: 0;
       top: 0;
@@ -187,16 +250,21 @@ export default {
       .product-id__info {
         display: none;
       }
+      .product-id__content-abs {
+        opacity: 1;
+        transform: translateY(0%);
+      }
     }
   }
 
   &__image {
     width: 100%;
-    height: 240px;
+    height: 250px;
     margin: 0 auto;
     background-size: 180px;
     position: relative;
     z-index: 30;
+    cursor: zoom-in;
     img {
       width: 100%;
       height: 100%;
@@ -206,7 +274,6 @@ export default {
       border-radius: 12px 12px 0 0;
     }
     @media (max-width: 767px) {
-      margin-bottom: 20px;
       width: 100%;
     }
   }
@@ -220,7 +287,7 @@ export default {
     gap: 6px;
     span {
       color: #3e3e3e;
-      font-size: 18px;
+      font-size: 20px;
       line-height: 120%;
       font-weight: 600;
       font-family: Arial, Helvetica, sans-serif !important;
@@ -234,6 +301,30 @@ export default {
           font-size: 16px;
         }
       }
+    }
+  }
+}
+.popup-product {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+  &__image {
+    width: 70vh;
+    height: 80vh;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
   }
 }
