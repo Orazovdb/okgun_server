@@ -67,12 +67,6 @@ export default {
           icon: "adminProfile",
           name: "Wakansiýa",
         },
-        {
-          id: "6",
-          to: "/new-products",
-          icon: "adminProduct",
-          name: "Täze önümler",
-        },
       ],
     };
   },

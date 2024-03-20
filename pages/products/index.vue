@@ -8,12 +8,12 @@
         @categoryProducts="getCategoryProducts"
         :catalogs="catalogs"
       />
-      <base-pagination
+      <!-- <base-pagination
         v-if="paginationCount > 1"
         :modelValue="page"
         @clickPage="(pagination) => updatePage(pagination)"
         :pageCount="paginationCount"
-      ></base-pagination>
+      ></base-pagination> -->
     </div>
   </div>
 </template>
