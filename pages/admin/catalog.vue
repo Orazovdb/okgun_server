@@ -76,7 +76,7 @@ export default {
     },
     async deleteItem(uuid) {
       try {
-        const { data, status } = await DELETE_CATALOG({ data: { uuid: uuid } });
+        const { status } = await DELETE_CATALOG({ data: { uuid: uuid } });
         if (status) {
           await this.fetch();
         }

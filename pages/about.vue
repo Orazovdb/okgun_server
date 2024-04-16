@@ -1,12 +1,5 @@
 <template>
   <div class="about" ref="aos">
-    <!-- <img src="@/assets/img/about-icon_1.svg" alt="" class="absolute icon-left-1" />
-    <img src="@/assets/img/about-icon_2.svg" alt="" class="absolute icon-left-2" />
-    <img src="@/assets/img/about-icon_1.svg" alt="" class="absolute icon-left-3" />
-    <img src="@/assets/img/about-icon_2.svg" alt="" class="absolute icon-left-4" />
-    <img src="@/assets/img/about-icon_2.svg" alt="" class="absolute icon-left-5" />
-    <img src="@/assets/img/about-icon_1.svg" alt="" class="absolute icon-left-6" />
-    <img src="@/assets/img/about-icon_2.svg" alt="" class="absolute icon-left-7" /> -->
     <div class="__container">
       <div class="about__row" ref="image">
         <div class="about__image">
@@ -213,6 +206,7 @@ export default {
     }
     @media (max-width: 767px) {
       order: 1;
+      transform: translateX(0);
       h2 {
         font-size: 30px;
       }

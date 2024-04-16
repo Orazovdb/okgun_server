@@ -167,6 +167,7 @@ export default {
     @media (max-width: 767px) {
       order: 1;
       -webkit-line-clamp: 4;
+      transform: translateX(0);
       h1 {
         font-size: 30px;
         margin-bottom: 14px;

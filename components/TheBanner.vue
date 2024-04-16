@@ -77,7 +77,7 @@ export default {
   background-color: #f7f7f7;
   margin-bottom: 40px;
   @media (max-width: 992px) {
-    height: 50vh;
+    height: 30vh;
   }
   @media (max-width: 767px) {
     margin-top: 30px;
@@ -134,8 +134,8 @@ export default {
       height: 100%;
       // transform: translate(0);
       img {
-        // object-fit: contain;
-        // object-position: right;
+        object-fit: fill;
+        object-position: center;
       }
       // &::before {
       //   content: '';

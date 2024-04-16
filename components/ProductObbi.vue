@@ -132,7 +132,7 @@ export default {
     flex-direction: column;
     border: 1px solid;
     border-radius: 12px;
-    transition: 0.3 all ease;
+    transition: 0.2s all ease;
     overflow: hidden;
     z-index: 2;
     position: relative;
@@ -142,8 +142,6 @@ export default {
     }
     &:hover {
       box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.5);
-      transition: 2s all;
-      // transition: 2s ease-in-out;
     }
     h4 {
       color: var(--text);
@@ -204,7 +202,7 @@ export default {
     padding: 20px;
     opacity: 0;
     transform: translateY(-200%);
-    transition: opacity 0.2s, transform 1s;
+    transition: opacity 0.2s, transform 0.7s;
     display: flex;
     flex-direction: column;
     h4 {
