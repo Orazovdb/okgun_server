@@ -102,7 +102,7 @@ export default {
         description_en: "",
         weight: "",
         srok: "",
-        image_path: "",
+        photo: "",
         uuid: "",
       },
     };
@@ -113,7 +113,7 @@ export default {
     },
     uploadFile(file) {
       this.image_path = ''
-      this.main.image_path = file;
+      this.main.photo = file;
     },
     async save() {
       if (!this.main.title_tm || !this.main.title_ru || !this.main.title_en) {

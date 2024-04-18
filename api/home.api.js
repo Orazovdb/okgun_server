@@ -33,7 +33,7 @@ export const GET_PRODUCT = ({ data }) =>
 
 export const GET_PRODUCT_NEW = ({ data }) =>
   request({
-    url: `/client/user/all-product?l=${data.limit}&p=${data.page}`,
+    url: `/client/user/get-new?l=${data.limit}&p=${data.page}`,
     method: "GET",
   });
 

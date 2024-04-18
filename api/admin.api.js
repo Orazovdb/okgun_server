@@ -27,8 +27,8 @@ export const GET_JOBS = ({ params }) =>
     url: `/admin/jobs/get?l=${params.limit}&p=${params.page}`,
     method: "GET",
   });
-export const DELETE_JOB = ({ data }) =>+
-  request({ url: `/admin/jobs/delete`, data, method: "post" });
+export const DELETE_JOB = ({ data }) =>
+  +request({ url: `/admin/jobs/delete`, data, method: "post" });
 export const GET_JOBS_VELAYATS = () =>
   request({
     url: `/admin/jobs/all-wel`,
@@ -71,10 +71,10 @@ export const DELETE_CATALOG = ({ data }) =>
 
 export const GET_PRODUCT_NEW = ({ data }) =>
   request({
-    url: `/admin/product/get-product?l=${data.limit}&p=${data.page}`,
+    url: `/admin/product/get-new-product?l=${data.limit}&p=${data.page}`,
     method: "GET",
   });
 export const ADD_PRODUCT_NEW = ({ data }) =>
-  request({ url: `/admin/product/add-new`, data, method: "post" });
+  request({ url: `/admin/product/add-new`, data, method: "post", file: true });
 export const DELETE_PRODUCT_NEW = ({ data }) =>
   request({ url: `/admin/product/delete-new`, data, method: "post" });

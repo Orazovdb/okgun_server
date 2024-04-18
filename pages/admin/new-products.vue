@@ -34,12 +34,12 @@
           </tbody>
         </base-table>
         <div class="pagination">
-          <base-pagination
+          <!-- <base-pagination
             v-if="paginationCount > 1"
             :modelValue="page"
             @clickPage="(pagination) => updatePage(pagination)"
             :pageCount="paginationCount"
-          ></base-pagination>
+          ></base-pagination> -->
         </div>
       </div>
     </div>
@@ -71,9 +71,9 @@ export default {
       productItem: null,
       buttons: [],
       products: [],
-      limit: 5,
+      limit: 1000,
       page: 1,
-      paginationCount: 0,
+      // paginationCount: 0,
     };
   },
   async mounted() {
@@ -90,7 +90,8 @@ export default {
         });
         if (status) {
           this.products = data || [];
-          this.paginationCount = Math.ceil(data.count / this.limit);
+          console.log(data);
+          // this.paginationCount = Math.ceil(data.count / this.limit);
         }
       } catch (error) {
         console.log(error);

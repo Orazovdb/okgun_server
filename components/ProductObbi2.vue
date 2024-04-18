@@ -9,7 +9,7 @@
         :product="product"
       >
         <div class="product-id__image">
-          <!-- <img loading="lazy" :data-src="`${baseURL}/${product.image_path}`" /> -->
+          <img loading="lazy" :data-src="`${baseURL}/${product.image_path}`" />
           <img :src="`${baseURL}/${product.image_path}`" alt="" />
         </div>
         <h4>{{ translateTitle(product) }}</h4>

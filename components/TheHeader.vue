@@ -20,6 +20,12 @@
                 {{ link.name }}
               </nuxt-link>
             </li>
+            <button
+              @click="$router.push('/new-products')"
+              class="menu__link-button"
+            >
+              {{ $t("newProducts") }}!
+            </button>
             <div class="menu__languages">
               <nuxt-link
                 v-for="locale in selectedLocale"
@@ -130,12 +136,12 @@ export default {
           name: this.$t("products"),
           exact: false,
         },
-        {
-          id: 3,
-          to: "/about",
-          name: this.$t("about"),
-          exact: false,
-        },
+        // {
+        //   id: 3,
+        //   to: "/about",
+        //   name: this.$t("about"),
+        //   exact: false,
+        // },
         {
           id: 4,
           to: "/vacancy",
@@ -161,7 +167,7 @@ export default {
   left: 0;
   width: 100%;
   min-height: 80px;
-  z-index: 30;
+  z-index: 304;
   background-color: #fff;
   box-shadow: 0.3px 0.3px 5px;
   @media (max-width: 767px) {
@@ -270,6 +276,7 @@ export default {
     padding: 6px 8px;
     transition: all 0.3s ease 0s;
     border-radius: 6px;
+
     &:hover {
       background-color: #e5e5e5;
       color: var(--primary);
@@ -302,6 +309,7 @@ export default {
 
   &__list {
     display: flex;
+    align-items: center;
     gap: 60px;
     @media (max-width: 767px) {
       flex-direction: column;
@@ -338,6 +346,19 @@ export default {
         color: #fff;
         border: transparent;
       }
+    }
+  }
+
+  &__link-button {
+    background: var(--primary);
+    padding: 8px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:active {
+      transform: scale(1.04);
     }
   }
 
